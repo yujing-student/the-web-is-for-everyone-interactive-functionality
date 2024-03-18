@@ -1,0 +1,92 @@
+<%- include('./partials/head') %>
+<main class="">
+
+    <section class="filter-section">
+        <form action="/" method="get" class="zoekvak">
+            <label for="city" class="search-tekst">zoek op plaatsnaam
+                <input type="search" name="city" class="">
+                <!--ik zeg nu ga zoeken en als name geef ik mee dat het id is en dat daar op gezocht word-->
+            </label>
+            <button type="submit" class="styling-searchbutton">zoeken</button>
+        </form>
+
+        <p class="">
+            Gebruik de zoekfunctie om de stad op te zoeken let erop dat alles
+            staat zoals in de database</p>
+
+        <% datahouse.forEach(function(person)
+
+        {
+        %>
+            <p>gevonden zoekresultaten:</p>
+            <ul>
+
+                <li class="">
+
+                    <%= person.id %> id en address: <a href="./person/<%= person.id %>"> naam: <%= person.id %>
+                        <%= person.street %>
+                        <%= person.house_nr %>
+                        <%= person.city %>
+                    </a>
+
+                </li>
+
+            </ul>
+
+        <% }); %>
+
+        <label for="filters">kies waar je op wilt filteren:</label>
+
+        <label for="filters"></label><select id="filters">
+            <option value="bewaardatum">bewaardatum</option>
+            <option value="prijs">prijs</option>
+            <option value="adress">adress</option>
+            <option value="datum">datum</option>
+        </select>
+
+    </section>
+
+
+    <div class="list-houses">
+        <% houses.forEach(house => { %>
+            <article class="">
+
+                <ul class="grid-items-house">
+                    <li class=""><img class="image-size"
+                                      src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"
+                                      alt="image house"></li>
+                    <li class=""><a class="link-to-detail"
+                                    href="./Detailpage/<%= house.id %>"><%= house.street %><%= house.house_nr %></a>
+                    </li>
+                    <li class=""><%= house.postal_code %> <%= house.city %></li>
+                    <li class="wonen">
+                        <span class="icons-house"><%= house.m2 %> <img src="/assets/icons/wonen.svg" alt="wonen icoon"> </span>
+                        <span class="icons-house"><%= house.m2_garden %> <img src="/assets/icons/perceel.svg"
+                                                                              alt="perceel icoon"> </span>
+                        <span class="icons-house"><%= house.rooms %> <img src="/assets/icons/bed.svg"
+                                                                          alt="bed icoon"></span>
+                    </li>
+                    <li class="beschrijving item">&euro; <%= house.price %> kk</li>
+
+                    <li class="agen-description"><%= house.agent %></li>
+                    <li class="heart"><a href="/favorite-list">
+                            <button type="button" class="favoriteButton">
+                                <img class="heart-image" src="assets/icons/heart.svg"
+
+                                     alt="like button">
+
+                            </button>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </article>
+
+        <% }) %>
+    </div>
+
+
+</main>
+<%- include('./partials/foot') %>

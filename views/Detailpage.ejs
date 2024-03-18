@@ -1,0 +1,97 @@
+<%- include('./partials/head-detail') %>
+<main class="">
+
+    <!--    / is om terug te gaan naar de homepagina-->
+
+
+    <div class="image-grid">
+        <img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"
+             alt="image house">
+        <% house.gallery.forEach(image =>{ %>
+            <img src="https://fdnd-agency.directus.app/assets/<%= image.directus_files_id.id %>" class="houses-images"
+                 alt="images houses">
+        <% }) %>
+    </div>
+
+    <section class="">
+        <h1 class="address-h1"><%= house.street %> <%= house.house_nr %></h1>
+        <ul class="detailpage-list-house">
+            <li class="postcode"> <%= house.postal_code %> <%= house.city %></li>
+            <li class="wonen">
+                <span class="text-font"><%= house.m2 %> <img src="/assets/icons/wonen.svg"
+                                                             alt="wonen icoon"> wonen</span>
+                <span class="tuin text-font"> <%= house.m2_garden %> <img src="/assets/icons/perceel.svg"
+                                                                          alt="perceel icoon"> perceel</span>
+                <span class="kamers text-font">
+                       <%= house.rooms %> <img src="/assets/icons/bed.svg" alt="bed icoon">
+                    kamers</span></li>
+            <li class="price">&euro; <%= house.price %> kk</li>
+        </ul>
+    </section>
+    <section class="description">
+        <h2>Beschrijving</h2>
+        <p class="description-text"><%- house.description %></p>
+        <button type="button" class="button-notes">log in om score te geven over het huis</button>
+    </section>
+    <section class="detailpage-hide-notes">
+
+        <h2 class="h2-score">score</h2>
+        <p class="p-score">hier kunt u een score geven over het huis</p>
+
+        <ul class="grid-scores padding-score">
+            <li class="algemeen score-range">algmeen
+                <input type="range" min="1" max="10" value="" class="slider" id="myRange"><span class="distance-score">score:</span>
+                <span id="demo"> score: </span></li>
+
+            <li class="keuken score-range">keuken <input type="range" min="1" max="10" value="0" class="slider"
+                                                         id="keuken">
+                <span class="distance-score">score:</span>
+                <span id="keukenvalue">score:</span></li>
+
+            <li class="score-range">badkamer <input type="range" min="1" max="10" value="0" class="slider"
+                                                    id="badkamer">
+                <span class="distance-score">score:</span>
+                <span id="badkamervalue">score:</span></li>
+
+
+            <li class="score-range">tuin <input type="range" min="1" max="10" value="0" class="slider" id="tuin">
+                <span class="distance-score">score:</span>
+                <span id="tuinvalue">score:</span></li>
+
+
+            <li class="score-range">prijs <input type="range" min="1" max="10" value="0" class="slider" id="prijs">
+                <span class="distance-score">score:</span>
+                <span id="prijsvalue">score:</span></li>
+            <li class="score-range">ligging <input type="range" min="1" max="10" value="0" class="slider" id="ligging">
+                <span class="distance-score">score:</span>
+                <span id="liggingvalue">score:</span></li>
+            <li class="score-range">oppervlakte <input type="range" min="1" max="10" value="0" class="slider"
+                                                       id="oppervlakte"> <span class="distance-score">score:</span>
+                <span id="oppervlaktevalue">score:</span></li>
+        </ul>
+
+
+        <h2 class="berichten-score">notities</h2>
+        <form method="POST" action="/" class="chatbox">
+            <input type="hidden" name="id" value="<%= house.id %>">
+            <label for="bericht">
+                <textarea id="bericht" required name="bericht"></textarea>
+            </label>
+            <button type="submit" class="button-notes notes">laat je notite achter</button>
+
+        </form>
+
+        <h2 class="berichten-score">Hier zie je uw berichten</h2>
+        <ul class="output padding-score">
+            <% messages.forEach(message =>{ %>
+                <li class="message"><%= message %></li>
+            <% }) %>
+        </ul>
+    </section>
+
+
+</main>
+<%- include('./partials/foot') %>
+
+
+
