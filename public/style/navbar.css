@@ -3,7 +3,6 @@ header {
     );
     position: relative;
     color: var(--black);
-
 }
 
 .log-funda,.mobile-logo {
@@ -31,15 +30,16 @@ header {
 .hamburger-icon-open{
     position: relative;
 
-    top:-6em;
+    top:-8em;
+}
+.login-icon:hover{
+    background-color: #0042B3;
 }
 
 .menu {
     background-color: var(--orange
     );
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 
@@ -50,21 +50,23 @@ header {
     background-color: var(--orange);
 }
 
-.hamburger-icon:hover {
-    background-color: var(--blue);
-    border: none;
-}
 
 .menu-link {
     color: var(--black);
     text-decoration: none;
+}
+.li-tems-menu{
+    margin-top: 1em;
 }
 
 
 a:hover {
     text-decoration-line: underline;
 }
-
+.logo-funda-svg{
+    width: 8em;
+    margin-left: -2em;
+}
 
 @media only screen and (min-width: 650px) {
 
@@ -82,6 +84,13 @@ a:hover {
         display: flex;
         row-gap: 1em;
         flex-direction: row;
+        column-gap: 1em;
+
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .menu-ul {
         column-gap: 2em;
 
     }

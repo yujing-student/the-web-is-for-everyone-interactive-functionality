@@ -2,14 +2,23 @@
 <section>
 
 
+    <section class="users-section">
+        <h2>gebruikers</h2>
+        <p>klik op je icoontje om je eigen lijst te zien nu zit je in de gezamelijke lijst</p>
+        <img src="../images/geel.jpg" class="user-profiles" alt="user geel">
+        <img src="../images/blauw.jpg" class="user-profiles" alt="user geel">
+        <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
+        <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
+    </section>
 <% list.houses.forEach(house => { %>
 
 
     <article class="houses">
 
         <ul>
-            <li><img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>" alt="image house"></li>
-            <li><%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></li>
+            <li><img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
+                     alt="image house"></li>
+            <li><a href="Detailpage.ejs"> <%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></a></li>
             <li><%= house.f_houses_id.postal_code %></li>
             <li><%= house.f_houses_id.city %></li>
             <li>€<%= house.f_houses_id.price %></li>

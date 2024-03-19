@@ -63,7 +63,7 @@ app.get('/lijsten/:id', function (request, response) {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
 
                 // ... rest of your code using apiData.data.houses
-                response.render('lijst.ejs', {
+                response.render('lijst.css.ejs', {
                     list: apiData.data,
                     numbers: numbers
                 });
@@ -87,3 +87,6 @@ app.listen(app.get('port'), function () {
     // Toon een bericht in de console en geef het poortnummer door
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+
+//todo route aanmaken voor de detailpagina zodat je er naar toe kan gaan zie het oude project

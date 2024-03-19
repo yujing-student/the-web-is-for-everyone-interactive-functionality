@@ -11,7 +11,7 @@
         </form>
 
 
-        <label for="filters">kies op welke lijst je wilt filteren:</label>
+        <label for="filters" class="text-filter">kies op welke lijst je wilt filteren:</label>
 
       <select id="filters">
             <option value="lijst1">lijst1</option>
@@ -27,7 +27,8 @@
 
 
         <% houses.forEach(house => { %>
-                <li class="list border-top"><a href="/lijsten/<%= house.id %>" class="link-to-house">de title van de lijst van uw favoriten huis :<%= house.title %></a></li>
+                <li class="list border-top"><a href="/lijsten/<%= house.id %>"
+                                               class="link-to-house">de title van de lijst van uw favoriten huis :<%= house.title %></a></li>
             <li class="list">omschrijving van uw favoriten huis :<%= house.description %></li>
             <li class="list border-bottom">dit zijn uw huizen :<%= house.houses %></li>
         <% }) %>
