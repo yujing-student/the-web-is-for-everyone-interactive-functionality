@@ -1,0 +1,33 @@
+<%- include('./partials/head') %>
+<section>
+
+
+<% list.houses.forEach(house => { %>
+
+
+    <article class="houses">
+
+        <ul>
+            <li><img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>" alt="image house"></li>
+            <li><%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></li>
+            <li><%= house.f_houses_id.postal_code %></li>
+            <li><%= house.f_houses_id.city %></li>
+            <li>€<%= house.f_houses_id.price %></li>
+            <li><%= house.f_houses_id.agent %></li>
+            <form action="/lijsten/<%= house.id %>" method="post">
+                <input id="pi_input" type="range" min="0" max="10" required name="number" />
+                <p>Value: <output id="value"></output></p>
+                <button type="submit">Verstuur score</button>
+            </form>
+
+            <h2>Huidige numbers</h2>
+            <ul>
+                <% numbers.forEach(number => { %>
+                    <li><%= number %></li>
+                <% }) %>
+            </ul>
+
+        </ul>
+    </article>
+<% }); %>
+</section>
