@@ -42,6 +42,7 @@ app.get('/', async function (request, response) {
 
                 });
             }
+        //     todo er moet iets gebueren dat de images van de huizen zichtbaar is met de tekst zie lijsten:id
 
 
         })

@@ -73,7 +73,7 @@ a:hover {
         top: -5px
     }
 
-    .mobile-logo {
+    .mobile-logo,.hamburger-icon {
         display: none;
     }
 
