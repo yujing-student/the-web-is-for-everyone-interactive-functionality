@@ -24,7 +24,87 @@ body {
     --white: #ffffff;
     --orange: #F7A100;
     --black: #333333;
+    --gray:#dddddd;
 
     --margin-input-fields: 0 0 1em 0;
     --margin-2-em: 2em;
+}
+/*general*/
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+
+}
+/*read the code from above to under as it is in the index ejs*/
+main{
+    margin:2em 2em 2em 1em;
+}
+.favorite-section-search{
+    display: grid;
+    grid-template-rows: repeat(3, 20px);
+    grid-row-gap: 1em;
+    max-width: 30em;
+    font-size: 1.15em;
+}
+.search-tekst,.styling-searchbutton{
+    font-size: 1.1em;
+    border: none;
+}
+.search-text{
+    font-size: 1.16em;
+}
+.input-search{
+    font-size: 0.9em;
+}
+.input-search:focus{
+    background-color: yellow;
+}
+.styling-searchbutton{
+    background-color: var(--orange);
+}
+.styling-searchbutton:hover{
+    background-color: var(--blue);
+}
+#filters{
+    max-width: 10em;
+}
+
+.names-of-houses{
+    margin-left: -2em;
+    display: grid;
+    grid-row-gap: 0.8em;
+
+}
+.link-to-house{
+    font-size: 1em;
+    font-weight: bold;
+
+}
+.link-to-house{
+    font-weight: 300;
+}
+.link-to-house:hover{
+    color: var(--orange);
+}
+.border-bottom {
+        border-bottom: solid var(--gray);
+    /*    margin-top: 0em;*/
+    /*    margin-bottom: 1em;*/
+    /*}*/
+    padding:0 0 1.8em 0;
+}
+.border-top:not(:first-child){
+    margin-top: 1em;
+}
+
+@media (width >= 600px) {
+   .names-of-houses{
+       margin-left: 0.5em;
+       max-width: 86em;
+       grid-template-columns: 1fr;
+       padding:0.5em;
+
+}
 }
