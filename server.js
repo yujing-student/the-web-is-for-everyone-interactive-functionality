@@ -51,28 +51,13 @@ app.get('/', async function (request, response) {
 });
 // in deze code heb ik ebwust gekozen voor asyinc en await omdat de fetchjson een promise is
 
-app.get('/favorite-list', function (request, response) {
-    fetchJson('https://fdnd-agency.directus.app/items/f_list')
-        .then((favorite_houses) => {
-            // console.log('data bestaat u gaat nu naar de favoreiten page'+JSON.stringify(favorite_houses))
-            // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
-            if (favorite_houses.data) {/*als data voer dan dit uit */
-                        response.render('favorite-list', {
-                            favorite_houses:
-                            favorite_houses.data
-                        });
-                    }
-
-
-        })
-        .catch((error) => {
-            console.error('Error fetching house data:', error);
-        });
-});
-
 app.get('/lijsten/:id', function (request, response) {
     fetchJson('https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*')
         //dat + ?fields is omdat dit gekoppelde velden zijn aan 3 andere tabellen dnek ik
+    console.log('Fetching data for list ID:', request.params.id);
+    const url = 'https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*';
+    console.log('Constructed URL:', url);
+    fetchJson(url)
         .then((apiData) => {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
 
@@ -91,7 +76,7 @@ app.get('/lijsten/:id', function (request, response) {
 app.post('/lijsten/:id',async function (request,response){
     numbers.push(request.body.number)
 
-    response.redirect(303,'/lijsten/'+request.params.id)
+    response.redirect('/lijsten/'+request.params.id)
 })
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)

@@ -14,20 +14,21 @@
             <li><%= house.f_houses_id.city %></li>
             <li>€<%= house.f_houses_id.price %></li>
             <li><%= house.f_houses_id.agent %></li>
+        </ul>
             <form action="/lijsten/<%= house.id %>" method="post">
                 <input id="pi_input" type="range" min="0" max="10" required name="number" />
                 <p>Value: <output id="value"></output></p>
                 <button type="submit">Verstuur score</button>
             </form>
 
-            <h2>Huidige numbers</h2>
+            <h2>Huidige beoordeling</h2>
             <ul>
                 <% numbers.forEach(number => { %>
                     <li><%= number %></li>
                 <% }) %>
             </ul>
 
-        </ul>
+
     </article>
 <% }); %>
 </section>

@@ -1,0 +1,88 @@
+header {
+    background-color: var(--orange
+    );
+    position: relative;
+    color: var(--black);
+
+}
+
+.log-funda,.mobile-logo {
+    width: 150px;
+
+}
+.menu-ul{
+    display: none;
+}
+
+.menu-ul-open {
+    display: block;
+    margin: 1em 0 0 0;
+}
+
+.mobile-logo-open{
+    display: none;
+}
+.hamburger-icon {
+
+    background-color: var(--orange);
+
+    border: none;
+}
+.hamburger-icon-open{
+    position: relative;
+
+    top:-6em;
+}
+
+.menu {
+    background-color: var(--orange
+    );
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+
+.login-button {
+    background-color: var(--orange);
+}
+
+.hamburger-icon:hover {
+    background-color: var(--blue);
+    border: none;
+}
+
+.menu-link {
+    color: var(--black);
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+
+@media only screen and (min-width: 650px) {
+
+
+    .log-funda {
+        top: -5px
+    }
+
+    .mobile-logo {
+        display: none;
+    }
+
+
+    .menu-ul {
+        display: flex;
+        row-gap: 1em;
+        flex-direction: row;
+        column-gap: 2em;
+
+    }
+}
