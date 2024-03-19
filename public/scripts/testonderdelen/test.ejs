@@ -3,3 +3,27 @@
     <li class="list">omschrijving van uw favoriten huis :<%= house.description %></li>
     <li class="list border-bottom">dit zijn uw huizen :<%= house.houses %></li>
 <% }) %>
+
+
+
+app.get('/lijsten/:id', function (request, response) {
+fetchJson('https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*')
+//dat + ?fields is omdat dit gekoppelde velden zijn aan 3 andere tabellen dnek ik
+console.log('Fetching data for list ID:', request.params.id);
+const url = 'https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*';
+console.log('Constructed URL:', url);
+fetchJson(url)
+.then((apiData) => {
+if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
+
+// ... rest of your code using apiData.data.houses
+response.render('lijst.ejs', {
+list: apiData.data,
+numbers: numbers
+});
+}
+})
+.catch((error) => {
+console.error('Error fetching house data:', error);
+});
+});

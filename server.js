@@ -52,18 +52,18 @@ app.get('/', async function (request, response) {
 });
 // in deze code heb ik ebwust gekozen voor asyinc en await omdat de fetchjson een promise is
 
+
 app.get('/lijsten/:id', function (request, response) {
-    fetchJson('https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*')
-        //dat + ?fields is omdat dit gekoppelde velden zijn aan 3 andere tabellen dnek ik
-    console.log('Fetching data for list ID:', request.params.id);
-    const url = 'https://fdnd-agency.directus.app/items/f_list/' + request.params.id + '?fields=*.*.*';
-    console.log('Constructed URL:', url);
+    const listId = request.params.id;
+    console.log('Fetching data for list ID:', listId);
+
+    const url = `https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`;
+
     fetchJson(url)
         .then((apiData) => {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
-
                 // ... rest of your code using apiData.data.houses
-                response.render('lijst.css.ejs', {
+                response.render('lijst.ejs', {
                     list: apiData.data,
                     numbers: numbers
                 });
