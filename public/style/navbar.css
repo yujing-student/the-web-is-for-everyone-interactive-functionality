@@ -42,7 +42,9 @@ header {
     display: flex;
 }
 
-
+.button-login-icon{
+    margin-top: -0.5em;
+}
 
 
 

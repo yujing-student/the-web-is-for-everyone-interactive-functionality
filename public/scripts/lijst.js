@@ -6,4 +6,4 @@ function range(){
         value.textContent = event.target.value;
     });
 }
-range()
+// range()

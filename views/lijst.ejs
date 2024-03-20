@@ -23,13 +23,13 @@
                     <li><img class="image-size"
                              src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
                              alt="image house"></li>
-                    <li>
+                    <li class="child-li-house-card">
                         <a href="Detailpage.ejs"> <%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></a>
                     </li>
-                    <li><%= house.f_houses_id.postal_code %></li>
-                    <li><%= house.f_houses_id.city %></li>
-                    <li>€<%= house.f_houses_id.price %></li>
-                    <li><%= house.f_houses_id.agent %></li>
+                    <li class="child-li-house-card"><%= house.f_houses_id.postal_code %></li>
+                    <li class="child-li-house-card"><%= house.f_houses_id.city %></li>
+                    <li class="child-li-house-card">€<%= house.f_houses_id.price %></li>
+                    <li class="child-li-house-card"><%= house.f_houses_id.agent %></li>
                 </ul>
                 <section class="sccore-seciton-range">
                     <form action="/lijsten/<%= house.id %>" method="post">

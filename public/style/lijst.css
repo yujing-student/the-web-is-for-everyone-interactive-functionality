@@ -42,7 +42,7 @@ li {
 }
 
 .houses {
-    width: 22em;
+    width: 16em;
     padding: 0 0 0 3em;
     box-sizing: border-box;
     border: solid var(--gray) 0.2em;
@@ -66,11 +66,23 @@ li {
 
 .image-house-data {
     padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+    padding-right: 3em;
 /*    de ul op padding 0 zetten zodat het in  1 lijn is met de rest van de kaartjes*/
 }
+/*dit is de ul todo kijken of er een manier is dat je ieder list item in de ul een bepaalde hoogte kan meegeven waardoor alles op  1 lijn staat zelfs al is de content van de li er niet*/
+.child-li-house-card{
+    height: 1em;
+}
+/*.image-size {*/
+/*    width: 150px;*/
+/*    height: 100px;*/
 
-.image-size, .user-profiles {
-    width: 150px;
+/*}*/
+.user-profiles{
+   width: 150px;
 }
 
 .users-section {
@@ -83,11 +95,18 @@ li {
 }
 
 
-@media (width >= 300px) {
-    /*.image-house-data{*/
-    /*    max-width: 6em;*/
-    /*}*/
+@media (width >= 400px) {
+    .houses{
+        width: 22em;
+    }
+    .image-size{
+        /*width: 228px;*/
+        /*height: 152px;*/
+        object-fit: cover;
+    }
+
 }
+/*todo uitzoeken hoe je de image mooi kan laten mee bewwegen met object fit */
 
 
 @media (width >= 600px) {
@@ -97,6 +116,7 @@ li {
     /*}*/
     .image-size {
         width: 250px;
+        height: 183px;
         object-fit: cover;
 
     }
