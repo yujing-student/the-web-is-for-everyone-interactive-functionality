@@ -1,5 +1,5 @@
 <%- include('./partials/head-lijst') %>
-<section>
+
 
 
     <section class="users-section">
@@ -10,12 +10,16 @@
         <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
         <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
     </section>
+<div class="grid-container-houses-lijst">
+
+
 <% list.houses.forEach(house => { %>
+<!--    hoouses staat niet dubbel dit heb je nodig omdat je de data uit de houses tabel nodig hebt zie de 1ste get route /-->
 
 
     <article class="houses">
 
-        <ul>
+        <ul class="image-house-data">
             <li><img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
                      alt="image house"></li>
             <li><a href="Detailpage.ejs"> <%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></a></li>
@@ -24,9 +28,14 @@
             <li>€<%= house.f_houses_id.price %></li>
             <li><%= house.f_houses_id.agent %></li>
         </ul>
+        <section class="sccore-seciton-range">
             <form action="/lijsten/<%= house.id %>" method="post">
                 <input id="pi_input" type="range" min="0" max="10" required name="number" />
-                <p>Value: <output id="value"></output></p>
+                <p>Value: <output id="value"><ul>
+                            <% numbers.forEach(number => { %>
+                                <li><%= number %></li>
+                            <% }) %>
+                        </ul></output></p>
                 <button type="submit">Verstuur score</button>
             </form>
 
@@ -36,8 +45,10 @@
                     <li><%= number %></li>
                 <% }) %>
             </ul>
+        </section>
+
 
 
     </article>
 <% }); %>
-</section>
+</div>

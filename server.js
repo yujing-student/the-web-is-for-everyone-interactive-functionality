@@ -5,7 +5,7 @@ import express, {json} from 'express'
 import fetchJson from './helpers/fetch-json.js'
 
 // Haal alle images uit de WHOIS API op
-const messages = []
+const messages = [0]
 const app = express()
 
 const allData_houses = await fetchJson('https://fdnd-agency.directus.app/items/f_houses')
@@ -14,7 +14,7 @@ const favorite_houses = await fetchJson('https://fdnd-agency.directus.app/items/
 const favorite_hous_id_1 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:1}`)
 const favorite_hous_id_2 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:2}`)
 const favorite_hous_id_3 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:3}`)
-const numbers = []
+const numbers = [0]
 
 
 // Stel ejs in als template engine
@@ -62,7 +62,6 @@ app.get('/lijsten/:id', function (request, response) {
     fetchJson(url)
         .then((apiData) => {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
-                // ... rest of your code using apiData.data.houses
                 response.render('lijst.ejs', {
                     list: apiData.data,
                     numbers: numbers
@@ -75,7 +74,9 @@ app.get('/lijsten/:id', function (request, response) {
 });
 
 app.post('/lijsten/:id',async function (request,response){
-    numbers.push(request.body.number)
+    // numbers.push(request.body.number)
+    numbers[0] = request.body.number; // Change the first element to 7 (example)
+    numbers.push(request.body.number);
 
     response.redirect('/lijsten/'+request.params.id)
 })
