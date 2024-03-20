@@ -24,65 +24,78 @@ body {
     --white: #ffffff;
     --orange: #F7A100;
     --black: #333333;
-    --gray:#dddddd;
+    --gray: #dddddd;
 
     --margin-input-fields: 0 0 1em 0;
     --margin-2-em: 2em;
 }
-li{
+
+li {
     list-style-type: none;
 }
-.houses{
+
+.grid-container-houses-lijst {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22em, 1fr));
+    gap: 1em;
+    margin: 2em;
+}
+
+.houses {
+    width: 22em;
+    padding: 0 0 0 3em;
+    box-sizing: border-box;
     border: solid var(--gray) 0.2em;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    justify-content: center;
 }
-.image-house-data{
-    /*margin-right: 2em;*/
-    padding-left: 0;
+
+.styling-card-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;max-width: 10em;
+    width: 100%;
+    justify-content: center;
 }
 
-.sccore-seciton-range{
-    /*margin-left: 2em;*/
-    /*margin-right: 2em;*/
+.image-size {
+    width: 100%;
+    object-fit: cover;
 }
-.image-size,.user-profiles{
+
+
+.image-house-data {
+    padding-left: 0;
+/*    de ul op padding 0 zetten zodat het in  1 lijn is met de rest van de kaartjes*/
+}
+
+.image-size, .user-profiles {
     width: 150px;
 }
-.users-section{
+
+.users-section {
     margin: 2em;
 }
-.user-profiles{
+
+.user-profiles {
 
 
 }
+
 
 @media (width >= 300px) {
-    .image-house-data{
-        max-width: 20em;
-    }
+    /*.image-house-data{*/
+    /*    max-width: 6em;*/
+    /*}*/
 }
-
 
 
 @media (width >= 600px) {
 
-    .grid-container-houses-lijst{
-        display: grid;
-        /*grid-template-columns: repeat(2, fit-content(340px));*/
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-        gap: 2em;
-    }
-    .image-house-data{
-        max-width: 40em;
-    }
-
-    .image-size{
+    /*.image-house-data{*/
+    /*    max-width: 13em;*/
+    /*}*/
+    .image-size {
         width: 250px;
         object-fit: cover;
 

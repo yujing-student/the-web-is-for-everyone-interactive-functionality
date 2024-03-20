@@ -1,54 +1,59 @@
 <%- include('./partials/head-lijst') %>
 
 
-
-    <section class="users-section">
-        <h2>gebruikers</h2>
-        <p>klik op je icoontje om je eigen lijst te zien nu zit je in de gezamelijke lijst</p>
-        <img src="../images/geel.jpg" class="user-profiles" alt="user geel">
-        <img src="../images/blauw.jpg" class="user-profiles" alt="user geel">
-        <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
-        <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
-    </section>
+<section class="users-section">
+    <h2>gebruikers</h2>
+    <p>klik op je icoontje om je eigen lijst te zien nu zit je in de gezamelijke lijst</p>
+    <img src="../images/geel.jpg" class="user-profiles" alt="user geel">
+    <img src="../images/blauw.jpg" class="user-profiles" alt="user geel">
+    <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
+    <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
+</section>
 <div class="grid-container-houses-lijst">
 
-
-<% list.houses.forEach(house => { %>
-<!--    hoouses staat niet dubbel dit heb je nodig omdat je de data uit de houses tabel nodig hebt zie de 1ste get route /-->
-
-
-    <article class="houses">
-
-        <ul class="image-house-data">
-            <li><img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
-                     alt="image house"></li>
-            <li><a href="Detailpage.ejs"> <%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></a></li>
-            <li><%= house.f_houses_id.postal_code %></li>
-            <li><%= house.f_houses_id.city %></li>
-            <li>€<%= house.f_houses_id.price %></li>
-            <li><%= house.f_houses_id.agent %></li>
-        </ul>
-        <section class="sccore-seciton-range">
-            <form action="/lijsten/<%= house.id %>" method="post">
-                <input id="pi_input" type="range" min="0" max="10" required name="number" />
-                <p>Value: <output id="value"><ul>
-                            <% numbers.forEach(number => { %>
-                                <li><%= number %></li>
-                            <% }) %>
-                        </ul></output></p>
-                <button type="submit">Verstuur score</button>
-            </form>
-
-            <h2>Huidige beoordeling</h2>
-            <ul>
-                <% numbers.forEach(number => { %>
-                    <li><%= number %></li>
-                <% }) %>
-            </ul>
-        </section>
+    <% list.houses.forEach(house => { %>
+        <!--    hoouses staat niet dubbel dit heb je nodig omdat je de data uit de houses tabel nodig hebt zie de 1ste get route /-->
 
 
+        <article class="houses">
+<!--            <section class="styling-card-content">-->
 
-    </article>
-<% }); %>
+
+                <ul class="image-house-data">
+                    <li><img class="image-size"
+                             src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
+                             alt="image house"></li>
+                    <li>
+                        <a href="Detailpage.ejs"> <%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></a>
+                    </li>
+                    <li><%= house.f_houses_id.postal_code %></li>
+                    <li><%= house.f_houses_id.city %></li>
+                    <li>€<%= house.f_houses_id.price %></li>
+                    <li><%= house.f_houses_id.agent %></li>
+                </ul>
+                <section class="sccore-seciton-range">
+                    <form action="/lijsten/<%= house.id %>" method="post">
+                        <input id="pi_input" type="range" min="0" max="10" required name="number"/>
+                        <p>Value:
+                            <output id="value"><p>
+                                    <% numbers.forEach(number => { %>
+                                        <span><%= number %></span>
+                                    <% }) %>
+                                </p></output>
+                        </p>
+                        <button type="submit">Verstuur score</button>
+                    </form>
+
+                    <h2>Huidige beoordeling</h2>
+                    <ul>
+                        <% numbers.forEach(number => { %>
+                            <li><%= number %></li>
+                        <% }) %>
+                    </ul>
+                </section>
+
+<!--            </section>-->
+
+        </article>
+    <% }); %>
 </div>
