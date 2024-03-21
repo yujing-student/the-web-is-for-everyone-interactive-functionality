@@ -34,6 +34,20 @@ li {
     list-style-type: none;
 }
 
+.users-section {
+    margin: 2em;
+}
+
+.user-profiles {
+    width: 150px;
+}
+
+
+.user-profiles {
+
+
+}
+
 .grid-container-houses-lijst {
     display: grid;
     grid-template-columns: repeat(auto-fit, 22em);
@@ -51,11 +65,13 @@ li {
     justify-content: center;
 }
 
-.styling-card-content {
+.image-house-data {
+    padding-left: 0;
+    /*padding left default op 0 zodat het recht komt te staan */
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: center;
+    gap: 0.4em;
+    padding-right: 3em;
 }
 
 .image-size {
@@ -64,56 +80,36 @@ li {
 }
 
 
-.image-house-data {
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
-    padding-right: 3em;
-/*    de ul op padding 0 zetten zodat het in  1 lijn is met de rest van de kaartjes*/
-}
-/*dit is de ul todo kijken of er een manier is dat je ieder list item in de ul een bepaalde hoogte kan meegeven waardoor alles op  1 lijn staat zelfs al is de content van de li er niet*/
-.child-li-house-card{
+.child-li-house-card {
     height: 1em;
-}
-/*.image-size {*/
-/*    width: 150px;*/
-/*    height: 100px;*/
-
-/*}*/
-.user-profiles{
-   width: 150px;
+    /*    hoogte bepalen van de tekstbinnen de kaart van ieder li element*/
 }
 
-.users-section {
-    margin: 2em;
+.green_icon {
+    display: none;
 }
 
-.user-profiles {
-
-
+.green_icon-open {
+    display: block;
+    width: 50px;
+    margin-top: 2em;
 }
 
 
 @media (width >= 400px) {
-    .houses{
+    .houses {
         width: 22em;
     }
-    .image-size{
-        /*width: 228px;*/
-        /*height: 152px;*/
+
+    .image-size {
         object-fit: cover;
     }
 
 }
-/*todo uitzoeken hoe je de image mooi kan laten mee bewwegen met object fit */
 
 
 @media (width >= 600px) {
 
-    /*.image-house-data{*/
-    /*    max-width: 13em;*/
-    /*}*/
     .image-size {
         width: 250px;
         height: 183px;

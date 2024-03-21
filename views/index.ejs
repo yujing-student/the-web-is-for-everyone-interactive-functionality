@@ -2,7 +2,7 @@
 <main class="">
     <section class="favorite-section-search">
 
-        <form action="/" method="get" class="zoekvak">
+        <form action="/" method="get" class="">
             <label for="title" class="search-tekst"><span class="search-text">zoek op titel</span>
                 <input type="search" name="title" class="input-search">
                 <!--ik zeg nu ga zoeken en als name geef ik mee dat het id is en dat daar op gezocht word-->
@@ -11,7 +11,7 @@
         </form>
 
 
-        <label for="filters" class="text-filter">kies op welke lijst je wilt filteren:</label>
+        <label for="filters" class="">kies op welke lijst je wilt filteren:</label>
 
       <select id="filters">
             <option value="lijst1">lijst1</option>
@@ -21,24 +21,24 @@
         </select>
 
     </section>
-    <section class="second-section-database">
+    <section>
         <h2>uw huizen lijsten</h2>
         <ul class="names-of-houses">
 
 
         <% houses.forEach(house => { %>
-                <li class="list border-top"><a href="/lijsten/<%= house.id %>"
+                <li><a href="/lijsten/<%= house.id %>"
                                                class="link-to-house">de title van de lijst van uw favoriten huis :<%= house.title %></a></li>
-            <li class="list">omschrijving van uw favoriten huis :<%= house.description %></li>
-            <li class="list border-bottom">dit zijn uw huizen :<%= house.houses %></li>
+            <li>omschrijving van uw favoriten huis :<%= house.description %></li>
+            <li class=" border-bottom">dit zijn uw huizen :<%= house.houses %></li>
         <% }) %>
         </ul>
-        <ul class="grid-infomarition">
+        <ul class="">
 
         </ul>
 
-        <h3 class="houses-saved-border-top">hier staan uw huizen</h3>
-        <ul class="grid-infomarition">
+        <h3 class="">hier staan uw huizen</h3>
+        <ul class="g">
 
         </ul>
     </section>

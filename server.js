@@ -77,6 +77,7 @@ app.post('/lijsten/:id',async function (request,response){
     // numbers.push(request.body.number)
     numbers[0] = request.body.number; //verander het getal
     numbers.push(request.body.number);
+    // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
     response.redirect('/lijsten/'+request.params.id)
 })

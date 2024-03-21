@@ -1,4 +1,4 @@
-function ShowHamburgerMenu () {/*hamburger menu*/
+function ShowHamburgerMenu() {/*hamburger menu*/
     const button = document.querySelector('.hamburger-icon');/*select icon hamburger*/
     const menu = document.querySelector('.menu-ul');
     const mobilelogo = document.querySelector('.mobile-logo')
@@ -10,6 +10,7 @@ function ShowHamburgerMenu () {/*hamburger menu*/
 
     });
 }
+
 ShowHamburgerMenu();
 
 

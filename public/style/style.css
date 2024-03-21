@@ -76,9 +76,7 @@ main {
     grid-row: 3;
 }
 
-.text-filter {
 
-}
 
 .styling-searchbutton:hover {
     background-color: var(--blue);
@@ -111,21 +109,18 @@ main {
 
 .border-bottom {
     border-bottom: solid var(--gray);
-    /*    margin-top: 0em;*/
-    /*    margin-bottom: 1em;*/
-    /*}*/
     padding: 0 0 1.8em 0;
 }
 
 .border-top:not(:first-child) {
     margin-top: 1em;
 }
+/*de 1ste item moet geen border hebben omdat dit lelijk is*/
 
 @media (width >= 600px) {
     .names-of-houses {
         margin-left: 0.5em;
         max-width: 86em;
-
         padding: 0.5em;
 
     }

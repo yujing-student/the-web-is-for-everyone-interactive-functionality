@@ -5,11 +5,12 @@ header {
     color: var(--black);
 }
 
-.log-funda,.mobile-logo {
+.log-funda, .mobile-logo {
     width: 150px;
 
 }
-.menu-ul{
+
+.menu-ul {
     display: none;
 }
 
@@ -18,21 +19,24 @@ header {
     margin: 1em 0 0 0;
 }
 
-.mobile-logo-open{
+.mobile-logo-open {
     display: none;
 }
+
 .hamburger-icon {
 
     background-color: var(--orange);
 
     border: none;
 }
-.hamburger-icon-open{
+
+.hamburger-icon-open {
     position: relative;
 
-    top:-8em;
+    top: -8em;
 }
-.login-icon:hover{
+
+.login-icon:hover {
     background-color: #0042B3;
 }
 
@@ -42,10 +46,9 @@ header {
     display: flex;
 }
 
-.button-login-icon{
+.button-login-icon {
     margin-top: -0.5em;
 }
-
 
 
 .login-button {
@@ -57,7 +60,8 @@ header {
     color: var(--black);
     text-decoration: none;
 }
-.li-tems-menu{
+
+.li-tems-menu {
     margin-top: 1em;
 }
 
@@ -65,7 +69,8 @@ header {
 a:hover {
     text-decoration-line: underline;
 }
-.logo-funda-svg{
+
+.logo-funda-svg {
     width: 8em;
     margin-left: -2em;
 }
@@ -77,7 +82,7 @@ a:hover {
         top: -5px
     }
 
-    .mobile-logo,.hamburger-icon {
+    .mobile-logo, .hamburger-icon {
         display: none;
     }
 
