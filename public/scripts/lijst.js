@@ -7,7 +7,7 @@ function range() {
     });
 }
 
-// range()
+range()
 // dit word niet gebruikt omddat ik vanuit proressive engancemetn te werk wil gaan
 
 function showicon() {
