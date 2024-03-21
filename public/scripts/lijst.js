@@ -18,6 +18,7 @@ function showicon() {
         iconlogo.src = "../images/green-checkmark.png"; // Set image path
         iconlogo.classList.add('green_icon-open'); // Apply styles
     });
+
 }
 
 showicon();

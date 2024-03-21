@@ -14,7 +14,7 @@ const favorite_houses = await fetchJson('https://fdnd-agency.directus.app/items/
 const favorite_hous_id_1 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:1}`)
 const favorite_hous_id_2 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:2}`)
 const favorite_hous_id_3 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:3}`)
-const numbers = [0]
+const numbers = []
 
 
 // Stel ejs in als template engine
@@ -74,8 +74,7 @@ app.get('/lijsten/:id', function (request, response) {
 });
 
 app.post('/lijsten/:id',async function (request,response){
-    // numbers.push(request.body.number)
-    numbers[0] = request.body.number; //verander het getal
+    // numbers.push(request.body.number)//verander het getal
     numbers.push(request.body.number);
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 

@@ -36,9 +36,6 @@
                     </label>
                     <p>Value:
                         <output class="value"><p>
-                                <% numbers.forEach(number => { %>
-                                    <span><%= number %></span>
-                                <% }) %>
                             </p></output>
                     </p>
                         <img class="green_icon" src="../images/green-checkmark.png" alt="foto groen vinkje">
@@ -46,7 +43,7 @@
                 </form>
 
 
-                <h2>Huidige beoordeling</h2>
+                <h2>De beoordelingen</h2>
                 <ul>
                     <% numbers.forEach(number => { %>
                         <li><%= number %></li>
