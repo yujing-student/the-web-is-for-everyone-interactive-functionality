@@ -36,7 +36,7 @@ li {
 
 .grid-container-houses-lijst {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22em, 1fr));
+    grid-template-columns: repeat(auto-fit, 22em);
     gap: 1em;
     margin: 2em;
 }

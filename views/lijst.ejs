@@ -24,8 +24,9 @@
                              src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
                              alt="image house"></li>
                     <li class="child-li-house-card">
-                        <a href="Detailpage.ejs"> <%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.house_nr_addition %></a>
+                        <a href="../Detailpage/<%= house.id %>"><%= house.f_houses_id.street %><%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %> </a>
                     </li>
+
                     <li class="child-li-house-card"><%= house.f_houses_id.postal_code %></li>
                     <li class="child-li-house-card"><%= house.f_houses_id.city %></li>
                     <li class="child-li-house-card">€<%= house.f_houses_id.price %></li>

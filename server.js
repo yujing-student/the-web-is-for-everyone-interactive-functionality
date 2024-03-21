@@ -75,11 +75,56 @@ app.get('/lijsten/:id', function (request, response) {
 
 app.post('/lijsten/:id',async function (request,response){
     // numbers.push(request.body.number)
-    numbers[0] = request.body.number; // Change the first element to 7 (example)
+    numbers[0] = request.body.number; //verander het getal
     numbers.push(request.body.number);
 
     response.redirect('/lijsten/'+request.params.id)
 })
+
+
+app.get('/Detailpage/:id', function (request, response) {
+    const id = request.params.id
+    fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`)
+
+
+        .then((apiData) => {
+            // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
+            if (apiData.data) {/*als data voer dan dit uit */
+                // console.log('data bestaat u gaat nu naar de Detailpage page' + JSON.stringify(apiData))
+                // info gebruiken om die te linken aan apidata.data
+                response.render('Detailpage', {
+                    house: apiData.data, images:
+                    favorite_houses.data, messages: messages
+                });
+                //     messages moet uitgevoerd worden met de meegegeven array
+
+
+            } else {
+                console.log('No data found for house with id: ' + request.params.id);
+                //     laat de error zien als de data al niet gevonden word
+            }
+        })
+        .catch((error) => {
+            console.error('Error fetching house data:', error);
+        });
+});
+
+
+app.post('/Detailpage/:id/', function (request, response) {
+    // Stap 1: Haal de huidige data op, zodat we altijd up-to-date zijn, en niks weggooien van anderen
+    // Haal eerst de huidige gegevens voor deze persoon op, uit de WHOIS API
+    const id = request.params.id
+    fetchJson(`https://fdnd-agency.directus.app/items/f_houses/Detailpage/${id}`)
+        .then((patchresponse) => {
+            // voer dit uit
+            console.log(patchresponse);
+            response.redirect(303, '/Detailpage/' + request.params.id)
+        })
+
+})
+
+
+
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
 
