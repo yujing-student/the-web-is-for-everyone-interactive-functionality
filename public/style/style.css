@@ -77,7 +77,6 @@ main {
 }
 
 
-
 .styling-searchbutton:hover {
     background-color: var(--blue);
 }
@@ -115,6 +114,7 @@ main {
 .border-top:not(:first-child) {
     margin-top: 1em;
 }
+
 /*de 1ste item moet geen border hebben omdat dit lelijk is*/
 
 @media (width >= 600px) {

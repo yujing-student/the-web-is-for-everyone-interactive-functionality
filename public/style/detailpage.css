@@ -30,42 +30,50 @@ body {
 }
 
 
+/*dit staat op volgorde van de ejs detailpage*/
 
-/*dit egrbuikt ik*/
-
-li{
+li {
     list-style-type: none;
 }
+
 .image-size {
     width: 200px;
 }
+
 .houses-images {
     /*object-fit: cover;*/
     height: 200px;
     width: 200px;
     aspect-ratio: 1/1;
 }
+
 .address-h1 {
     margin-inline: 1.5em;
 }
+
 .detailpage-list-house {
     display: grid;
     grid-template-columns: auto;
     row-gap: 8px;
 }
+
 .text-font {
     font-size: 1.2em;
 }
+
 .tuin, .kamers {
     margin-left: 0.5em;
 }
+
 .price {
     font-size: 1.5em;
 }
+
 .description {
     margin-inline: 2.4em;
     border-top: solid #dddddd;
 }
+
 .description-text {
     line-height: 1.5em;
 }
@@ -76,29 +84,35 @@ li{
     font-size: 1.2em;
     border: none;
 }
+
 .detailpage-hide-notes {
     margin-left: 2em;
     display: none;
     background-color: #e6f2f7;
 }
+
 .detailpage-hide-notes-open {
     margin-left: 2em;
     display: block;
     background-color: #e6f2f7;
 }
+
 .h2-score {
     margin-left: 1.5em;
     padding-top: 1em;
 }
+
 .p-score {
     margin-left: 2.3em;
     margin-bottom: 2em;
 }
+
 .grid-scores {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 }
+
 .score-range {
     /*margin:0 0 3em 0;*/
     display: grid;
@@ -107,26 +121,32 @@ li{
     margin-bottom: 1em;
     max-width: 21em;
 }
+
 .distance-score {
     margin-left: 2em;
 }
+
 .berichten-score {
     margin-left: 1.6em;
     margin-top: 2em;
 }
+
 .chatbox {
     /*margin:0 0 3em 0;*/
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(0px, 1fr));
     /*gap: 15px;*/
 }
+
 .notes {
     width: 10em;
 }
+
 .output {
     margin-left: 2em;
     padding-bottom: 2em;
 }
+
 .message {
     list-style: disc;
 }

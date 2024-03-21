@@ -14,55 +14,46 @@
     <% list.houses.forEach(house => { %>
         <!--    hoouses staat niet dubbel dit heb je nodig omdat je de data uit de houses tabel nodig hebt zie de 1ste get route /-->
 
-
         <article class="houses">
-<!--            <section class="styling-card-content">-->
+            <ul class="image-house-data">
+                <li><img class="image-size"
+                         src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
+                         alt="image house"></li>
+                <li class="child-li-house-card">
+                    <a href="../Detailpage/<%= house.id %>"><%= house.f_houses_id.street %><%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %> </a>
+                </li>
 
+                <li class="child-li-house-card"><%= house.f_houses_id.postal_code %></li>
+                <li class="child-li-house-card"><%= house.f_houses_id.city %></li>
+                <li class="child-li-house-card">€<%= house.f_houses_id.price %></li>
+                <li class="child-li-house-card"><%= house.f_houses_id.agent %></li>
+            </ul>
 
-                <ul class="image-house-data">
-                    <li><img class="image-size"
-                             src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
-                             alt="image house"></li>
-                    <li class="child-li-house-card">
-                        <a href="../Detailpage/<%= house.id %>"><%= house.f_houses_id.street %><%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %> </a>
-                    </li>
-
-                    <li class="child-li-house-card"><%= house.f_houses_id.postal_code %></li>
-                    <li class="child-li-house-card"><%= house.f_houses_id.city %></li>
-                    <li class="child-li-house-card">€<%= house.f_houses_id.price %></li>
-                    <li class="child-li-house-card"><%= house.f_houses_id.agent %></li>
-                </ul>
-                <section class="">
-                    <form action="/lijsten/<%= house.id %>" method="post">
-                        <label>
-                            <input class="number_input" type="range" min="0" max="10" required name="number"/>
-                        </label>
-                        <p>Value:
-                            <output class="value"><p>
-                                    <% numbers.forEach(number => { %>
-                                        <span><%= number %></span>
-                                    <% }) %>
-                                </p></output>
-                        </p>
-                        <noscript>
-
+            <section class="">
+                <form action="/lijsten/<%= house.id %>" method="post">
+                    <label>
+                        <input class="number_input" type="range" min="0" max="10" required name="number"/>
+                    </label>
+                    <p>Value:
+                        <output class="value"><p>
+                                <% numbers.forEach(number => { %>
+                                    <span><%= number %></span>
+                                <% }) %>
+                            </p></output>
+                    </p>
                         <img class="green_icon" src="../images/green-checkmark.png" alt="foto groen vinkje">
-
-                        </noscript>
-                        <button class="submit-score" type="submit">Verstuur score</button>
-                    </form>
+                    <button class="submit-score" type="submit">Verstuur score</button>
+                </form>
 
 
-                    <h2>Huidige beoordeling</h2>
-                    <ul>
-                        <% numbers.forEach(number => { %>
-                            <li><%= number %></li>
-                        <% }) %>
-                    </ul>
-                </section>
+                <h2>Huidige beoordeling</h2>
+                <ul>
+                    <% numbers.forEach(number => { %>
+                        <li><%= number %></li>
+                    <% }) %>
+                </ul>
 
-<!--            </section>-->
-
+            </section>
         </article>
     <% }); %>
 </div>
