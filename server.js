@@ -5,7 +5,7 @@ import express, {json} from 'express'
 import fetchJson from './helpers/fetch-json.js'
 
 // Haal alle images uit de WHOIS API op
-const messages = [0]
+
 const app = express()
 
 const allData_houses = await fetchJson('https://fdnd-agency.directus.app/items/f_houses')
@@ -14,8 +14,8 @@ const favorite_houses = await fetchJson('https://fdnd-agency.directus.app/items/
 const favorite_hous_id_1 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:1}`)
 const favorite_hous_id_2 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:2}`)
 const favorite_hous_id_3 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:3}`)
-const numbers = []
-
+const numbers = []//dit is voor huizenlijsten
+const messages = []//dit is voor de detailpage
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -55,7 +55,7 @@ app.get('/', async function (request, response) {
 
 app.get('/lijsten/:id', function (request, response) {
     const listId = request.params.id;
-    console.log('Fetching data for list ID:', listId);
+    // console.log('Fetching data for list ID:', listId);
 
     const url = `https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`;
 
@@ -76,6 +76,7 @@ app.get('/lijsten/:id', function (request, response) {
 app.post('/lijsten/:id',async function (request,response){
     // numbers.push(request.body.number)//verander het getal
     numbers.push(request.body.number);
+    messages.push(request.body.bericht);
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
     response.redirect('/lijsten/'+request.params.id)
@@ -135,4 +136,3 @@ app.listen(app.get('port'), function () {
 })
 
 
-//todo route aanmaken voor de detailpagina zodat je er naar toe kan gaan zie het oude project

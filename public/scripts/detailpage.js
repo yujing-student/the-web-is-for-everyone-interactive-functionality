@@ -17,13 +17,12 @@ function shownotes() {
     let targetElement = document.querySelector('.algemeen'); // Select the target element
 
     button.addEventListener('click', () => {
-        menu.classList.toggle('hide-notes-open');
+        menu.classList.toggle('detailpage-hide-notes-open');
         targetElement.scrollIntoView({/*sroll to the queryselector*/
             behavior: "smooth"/*https://developer.mozilla.org/en-US/docs/web/api/element/scrollintoview*/
         });
     });
 }
-
 
 slider()
 sliderkeuken()

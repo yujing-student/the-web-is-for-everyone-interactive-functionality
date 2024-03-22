@@ -87,8 +87,8 @@ li {
 
 .detailpage-hide-notes {
     margin-left: 2em;
-    display: none;
     background-color: #e6f2f7;
+    display: none;
 }
 
 .detailpage-hide-notes-open {
