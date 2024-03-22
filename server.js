@@ -64,7 +64,8 @@ app.get('/lijsten/:id', function (request, response) {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
                 response.render('lijst.ejs', {
                     list: apiData.data,
-                    numbers: numbers
+                    numbers: numbers,
+                    messages: messages
                 });
             }
         })
@@ -76,7 +77,7 @@ app.get('/lijsten/:id', function (request, response) {
 app.post('/lijsten/:id',async function (request,response){
     // numbers.push(request.body.number)//verander het getal
     numbers.push(request.body.number);
-    messages.push(request.body.bericht);
+
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
     response.redirect('/lijsten/'+request.params.id)
@@ -115,6 +116,7 @@ app.post('/Detailpage/:id/', function (request, response) {
     // Stap 1: Haal de huidige data op, zodat we altijd up-to-date zijn, en niks weggooien van anderen
     // Haal eerst de huidige gegevens voor deze persoon op, uit de WHOIS API
     const id = request.params.id
+    messages.push(request.body.bericht);
     fetchJson(`https://fdnd-agency.directus.app/items/f_houses/Detailpage/${id}`)
         .then((patchresponse) => {
             // voer dit uit

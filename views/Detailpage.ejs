@@ -1,6 +1,7 @@
 <%- include('./partials/head-detail') %>
 <main class="">
-    <div class="image-grid">
+    <section class="image-grid">
+        <h2>house</h2>
 
         <img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"
              alt="image house">
@@ -8,7 +9,7 @@
             <img src="https://fdnd-agency.directus.app/assets/<%= image.directus_files_id.id %>" class="houses-images"
                  alt="images houses">
         <% }) %>
-    </div>
+    </section>
 
     <section class="">
 
@@ -50,18 +51,18 @@
                 <span class="distance-score">score:</span>
                 <span id="keukenvalue">score:</span></li>
 
-            <li class="score-range">badkamer <input type="range" min="1" max="10" value="0" class="slider"
-                                                    id="badkamer">
+            <li class="score-range">badkamer <label for="badkamer"></label><input type="range" min="1" max="10" value="0" class="slider"
+                                                                                  id="badkamer">
                 <span class="distance-score">score:</span>
                 <span id="badkamervalue">score:</span></li>
 
 
-            <li class="score-range">tuin <input type="range" min="1" max="10" value="0" class="slider" id="tuin">
+            <li class="score-range">tuin <label for="tuin"></label><input type="range" min="1" max="10" value="0" class="slider" id="tuin">
                 <span class="distance-score">score:</span>
                 <span id="tuinvalue">score:</span></li>
 
 
-            <li class="score-range">prijs <input type="range" min="1" max="10" value="0" class="slider" id="prijs">
+            <li class="score-range">prijs <label for="prijs"></label><input type="range" min="1" max="10" value="0" class="slider" id="prijs">
                 <span class="distance-score">score:</span>
                 <span id="prijsvalue">score:</span></li>
             <li class="score-range">ligging <input type="range" min="1" max="10" value="0" class="slider" id="ligging">
@@ -73,9 +74,20 @@
         </ul>
 
 
+        <ul class="grid-scores">
+            <li class=""><label for="name">geef een naam voor custom rating:</label>
+                <form method="POST" action="/" class="chatbox">
+                <input type="text" id="name"  size="10" />
+                    <button type="submit" class="">verstuur naam rating</button>
+                </form>
+                <label for="myRange"></label><input type="range" min="1" max="10" value="" class="algemeen" id="myRange"><span
+                        class="distance-score">score:</span>
+            </li>
+
+        </ul>
         <h2 class="berichten-score">notities</h2>
         <form method="POST" action="/" class="chatbox">
-            <input type="hidden" name="id" value="<%= house.id %>">
+            <input type="hidden" value="<%= house.id %>">
             <label for="bericht">
                 <textarea id="bericht" required name="bericht"></textarea>
             </label>
