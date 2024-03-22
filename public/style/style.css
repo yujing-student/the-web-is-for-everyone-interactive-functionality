@@ -89,6 +89,7 @@ main {
     margin-left: -2em;
     display: grid;
     grid-row-gap: 0.8em;
+    border: solid #dddddd;
 
 }
 

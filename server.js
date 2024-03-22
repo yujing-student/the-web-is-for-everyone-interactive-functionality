@@ -127,6 +127,32 @@ app.post('/Detailpage/:id/', function (request, response) {
 })
 
 
+app.get('/score/:id', function (request, response) {
+    const id = request.params.id
+    fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`)
+
+
+        .then((apiData) => {
+            // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
+            if (apiData.data) {/*als data voer dan dit uit */
+                // console.log('data bestaat u gaat nu naar de Detailpage page' + JSON.stringify(apiData))
+                // info gebruiken om die te linken aan apidata.data
+                response.render('score', {
+                    house: apiData.data, images:
+                    favorite_houses.data, messages: messages
+                });
+                //     messages moet uitgevoerd worden met de meegegeven array
+
+
+            } else {
+                console.log('No data found for house with id: ' + request.params.id);
+                //     laat de error zien als de data al niet gevonden word
+            }
+        })
+        .catch((error) => {
+            console.error('Error fetching house data:', error);
+        });
+});
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
