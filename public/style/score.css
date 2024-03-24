@@ -4,3 +4,9 @@
 .user-profiles{
     width: 150px;
 }
+.score-range{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(0px,1fr));
+    margin-bottom: 1em;
+    max-width: 21em;
+}

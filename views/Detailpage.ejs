@@ -1,15 +1,15 @@
 <%- include('./partials/head-detail') %>
 <main class="">
-    <section class="image-grid">
-        <h2>house</h2>
+    <div class="image-grid">
 
-        <img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"
-             alt="image house">
+
+        <!--        <img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"-->
+        <!--             alt="image house">-->
         <% house.gallery.forEach(image =>{ %>
             <img src="https://fdnd-agency.directus.app/assets/<%= image.directus_files_id.id %>" class="houses-images"
                  alt="images houses">
         <% }) %>
-    </section>
+    </div>
 
     <section class="">
 
@@ -17,13 +17,17 @@
         <ul class="detailpage-list-house">
             <li class=""> <%= house.postal_code %> <%= house.city %></li>
             <li class="">
-                <span class="text-font"><%= house.m2 %> <img src="/assets/icons/wonen.svg"
-                                                             alt="wonen icoon"> wonen</span>
-                <span class="tuin text-font"> <%= house.m2_garden %> <img src="/assets/icons/perceel.svg"
-                                                                          alt="perceel icoon"> perceel</span>
+                <img class="icons" src="/assets/icons/wonen.svg"
+                     alt=" icoon"> <span class="text-font wonen"> <%= house.m2 %> wonen</span>
+
+            </li>
+            <li>
+                <img class="icons" src="/assets/icons/perceel.svg"
+                     alt="perceel icoon"> <span class="tuin text-font"><%= house.m2_garden %> perceel</span>
+            <li>
+                <img class="icons" src="/assets/icons/bed.svg" alt="bed icoon">
                 <span class="kamers text-font">
-                       <%= house.rooms %> <img src="/assets/icons/bed.svg" alt="bed icoon">
-                    kamers</span></li>
+                       <%= house.rooms %>   kamers</span></li>
             <li class="price">&euro; <%= house.price %> kk</li>
         </ul>
 
@@ -31,76 +35,13 @@
 
     <section class="description">
         <h2>Beschrijving</h2>
-        <p class="description-text"><%- house.description %></p>
+        <p class="house-description-text"><%-house.description %></p>
+
+        <a href="../score.ejs/">scire</a>
+
         <button type="button" class="button-notes">log in om score te geven over het huis</button>
-    </section>
+<!--        todo hier moet de link naar de score pagina-->
 
-    <section class="detailpage-hide-notes">
-
-        <h2 class="h2-score">score</h2>
-        <p class="p-score">hier kunt u een score geven over het huis</p>
-
-        <ul class="grid-scores">
-            <li class="algemeen score-range">algmeen
-                <input type="range" min="1" max="10" value="" class="algemeen" id="myRange"><span
-                        class="distance-score">score:</span>
-                <span id="demo"> score: </span></li>
-
-            <li class="keuken score-range">keuken <input type="range" min="1" max="10" value="0" class="slider"
-                                                         id="keuken">
-                <span class="distance-score">score:</span>
-                <span id="keukenvalue">score:</span></li>
-
-            <li class="score-range">badkamer <label for="badkamer"></label><input type="range" min="1" max="10" value="0" class="slider"
-                                                                                  id="badkamer">
-                <span class="distance-score">score:</span>
-                <span id="badkamervalue">score:</span></li>
-
-
-            <li class="score-range">tuin <label for="tuin"></label><input type="range" min="1" max="10" value="0" class="slider" id="tuin">
-                <span class="distance-score">score:</span>
-                <span id="tuinvalue">score:</span></li>
-
-
-            <li class="score-range">prijs <label for="prijs"></label><input type="range" min="1" max="10" value="0" class="slider" id="prijs">
-                <span class="distance-score">score:</span>
-                <span id="prijsvalue">score:</span></li>
-            <li class="score-range">ligging <input type="range" min="1" max="10" value="0" class="slider" id="ligging">
-                <span class="distance-score">score:</span>
-                <span id="liggingvalue">score:</span></li>
-            <li class="score-range">oppervlakte <input type="range" min="1" max="10" value="0" class="slider"
-                                                       id="oppervlakte"> <span class="distance-score">score:</span>
-                <span id="oppervlaktevalue">score:</span></li>
-        </ul>
-
-
-        <ul class="grid-scores">
-            <li class=""><label for="name">geef een naam voor custom rating:</label>
-                <form method="POST" action="/" class="chatbox">
-                <input type="text" id="name"  size="10" />
-                    <button type="submit" class="">verstuur naam rating</button>
-                </form>
-                <label for="myRange"></label><input type="range" min="1" max="10" value="" class="algemeen" id="myRange"><span
-                        class="distance-score">score:</span>
-            </li>
-
-        </ul>
-        <h2 class="berichten-score">notities</h2>
-        <form method="POST" action="/" class="chatbox">
-            <input type="hidden" value="<%= house.id %>">
-            <label for="bericht">
-                <textarea id="bericht" required name="bericht"></textarea>
-            </label>
-            <button type="submit" class="button-notes notes">laat je notite achter</button>
-
-        </form>
-
-        <h2 class="berichten-score">Hier zie je uw berichten</h2>
-        <ul class="output">
-            <% messages.forEach(message =>{ %>
-                <li class="message"><%= message %></li>
-            <% }) %>
-        </ul>
     </section>
 
 

@@ -11,6 +11,7 @@ body {
     margin: 0 auto;
     font-family: proximanova, sans-serif;
     width: 100%;
+    line-height: 1.5em;
 }
 
 * {
@@ -50,28 +51,31 @@ li {
 
 .grid-container-houses-lijst {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 22em);
+    grid-template-columns: repeat(auto-fit, 26em);
     gap: 1em;
     margin: 2em;
 }
 
 .houses {
-    width: 16em;
+    /*width: 16em;*/
     padding: 0 0 0 3em;
     box-sizing: border-box;
     border: solid var(--gray) 0.2em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .image-house-data {
     padding-left: 0;
     /*padding left default op 0 zodat het recht komt te staan */
-    display: flex;
-    flex-direction: column;
-    gap: 0.4em;
+    display: grid;
+    gap: 0.5em;
     padding-right: 3em;
+    width: 17em;
+    /*grid-template-rows: 12em 1em 1em 1em 1em 1em;*/
+    /*grid-template-rows: 12em repeat(5, 1.1em);*/
+/*    door deze code gaat de tekt  bovenop elkaa zitten*/
 }
 
 .image-size {
@@ -82,6 +86,7 @@ li {
 
 .child-li-house-card {
     height: 1em;
+    line-height: 1.5em;
     /*    hoogte bepalen van de tekstbinnen de kaart van ieder li element*/
 }
 
@@ -104,6 +109,7 @@ li {
 @media (width >= 400px) {
     .houses {
         width: 22em;
+        height: 39em;
     }
 
     .image-size {
@@ -120,6 +126,18 @@ li {
         height: 183px;
         object-fit: cover;
 
+    }
+
+    .image-house-data {
+        padding-left: 0;
+        /*padding left default op 0 zodat het recht komt te staan */
+        display: grid;
+        gap: 0.5em;
+        padding-right: 3em;
+        width: 17em;
+        /*grid-template-rows: 12em 1em 1em 1em 1em 1em;*/
+        grid-template-rows: 12em repeat(5, 1.1em);
+        /*    door deze code gaat de tekt  bovenop elkaa zitten*/
     }
 
 

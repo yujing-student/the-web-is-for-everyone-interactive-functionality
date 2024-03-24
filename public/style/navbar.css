@@ -1,3 +1,38 @@
+@font-face {
+    font-family: "proximanova";
+    src: url("/public/assets/font/ProximaNova-Regular_2607783814.otf");
+}
+
+:root {
+    --blue: #0042B3; /*huisstijl #0071B3 orgineel*/
+    --white: #ffffff;
+    --orange: #F7A100;
+    --black: #333333;
+    --gray: #dddddd;
+
+    --margin-input-fields: 0 0 1em 0;
+    --margin-2-em: 2em;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+    font-family: proximanova, sans-serif;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+li{
+    list-style-type: none;
+}
+
+
 header {
     background-color: var(--orange
     );

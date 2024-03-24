@@ -11,26 +11,36 @@
         </form>
 
         <label for="filters">kies op welke lijst je wilt filteren</label><select id="filters">
-            <option value="lijst1">lijst1</option>
-            <option value="lijst2">lijst2</option>
-            <option value="lijst3">lijst3</option>
-            <option value="lijst4">lijst4</option>
+            <% houses.forEach(house => { %>
+            <option value="lijst1"><%= house.title %></option>
+                <% }) %>
         </select>
+
+
     </section>
 
     <section>
         <h2>uw huizen lijsten</h2>
 
-        <ol class="names-of-houses">
+
+        <div class="grid-house-lists">
+
+            <% houses.forEach(house => { %>
+
+            <article>
+                <ol class="names-of-houses">
+                    <li><img src="images/hoouse-icon.jpg" class="image-size"> </li>
+                    <li class="height-li-items"><a href="/lijsten/<%= house.id %>"
+                           class="link-to-house height-li-items">Titel van het huis: <%= house.title %></a></li>
+                    <li class="height-li-items">Dit zijn uw huizen: <%= house.houses %></li>
+                </ol>
+
+            </article>
 
 
-        <% houses.forEach(house => { %>
-                <li><a href="/lijsten/<%= house.id %>"
-                                               class="link-to-house">de title van de lijst van uw favoriten huis :<%= house.title %></a></li>
-            <li>omschrijving van uw favoriten huis :<%= house.description %></li>
-            <li class=" border-bottom">dit zijn uw huizen :<%= house.houses %></li>
         <% }) %>
-        </ol>
+        </div>
+
     </section>
 
 

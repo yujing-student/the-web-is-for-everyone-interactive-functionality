@@ -20,37 +20,33 @@
                          src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
                          alt="image house"></li>
                 <li class="child-li-house-card">
-                    <a href="../Detailpage/<%= house.id %>"><%= house.f_houses_id.street %><%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %> </a>
+                    <a href="../Detailpage/<%= house.id %>"><%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %> </a>
                 </li>
 
-                <li class="child-li-house-card"><%= house.f_houses_id.postal_code %></li>
-                <li class="child-li-house-card"><%= house.f_houses_id.city %></li>
+                <li class="child-li-house-card"><%= house.f_houses_id.postal_code %> <%= house.f_houses_id.city %></li>
                 <li class="child-li-house-card">€<%= house.f_houses_id.price %></li>
                 <li class="child-li-house-card"><%= house.f_houses_id.agent %></li>
-            </ul>
+                <li class="child-li-house-card"> <a href="../score/<%=house.f_houses_id.id %>">ga naar score</a>
 
-            <section class="">
-                <form action="/lijsten/<%= house.id %>" method="post">
-                    <label>
-                        <input class="number_input" type="range" min="0" max="10" required name="number"/>
-                    </label>
-                    <p>Value:
-                        <output class="value"><p>
-                            </p></output>
-                    </p>
-                        <img class="green_icon" src="../images/green-checkmark.png" alt="foto groen vinkje">
-                    <button class="submit-score" type="submit">Verstuur score</button>
-                </form>
-
-
-                <h2>De beoordelingen</h2>
-                <ul>
-                    <% numbers.forEach(number => { %>
-                        <li><%= number %></li>
-                    <% }) %>
                 </ul>
 
-            </section>
+            <form method="POST" action="/lijsten/<%= house.id %>" class="chatbox">
+                <input type="hidden" value="<%= house.id %>">
+                <label for="numbers">geef je beoordeling
+                    <input type="number" id="bericht" required name="number" value="0">
+                </label>
+                <button type="submit" class="button-notes notes">laat je notite achter</button>
+
+            </form>
+
+            <h2 class="berichten-score">beoordleing</h2>
+            <ul class="output">
+                <% numbers.forEach(number =>{ %>
+                    <li class="message"><%= number %></li>
+                <% }) %>
+
+            </ul>
+
         </article>
     <% }); %>
 </div>

@@ -30,7 +30,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.get('/', async function (request, response) {
     fetchJson('https://fdnd-agency.directus.app/items/f_list')
-    // je kan geen 2x then met houses,favorite doen en niet 2x naast elkaar fetchjson dus dit moet met een promise all
+        // je kan geen 2x then met houses,favorite doen en niet 2x naast elkaar fetchjson dus dit moet met een promise all
         .then((favorite_houses) => {
             // console.log('data bestaat u gaat nu naar de favoreiten page'+JSON.stringify(favorite_houses))
             // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
@@ -42,7 +42,7 @@ app.get('/', async function (request, response) {
 
                 });
             }
-        //     todo er moet iets gebueren dat de images van de huizen zichtbaar is met de tekst zie lijsten:id
+            //     todo er moet iets gebueren dat de images van de huizen zichtbaar is met de tekst zie lijsten:id
 
 
         })
@@ -59,11 +59,14 @@ app.get('/lijsten/:id', function (request, response) {
 
     const url = `https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`;
 
-    fetchJson(url)
+// const specify_houses = `https://fdnd-agency.directus.app/items/f_houses/${houseID}/?fields=*.*.*`
+    fetchJson(`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`)
         .then((apiData) => {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
                 response.render('lijst.ejs', {
                     list: apiData.data,
+                    // houses:specify_houses,
+                    houses: apiData.data.houses,
                     numbers: numbers,
                     messages: messages
                 });
@@ -86,6 +89,7 @@ app.post('/lijsten/:id',async function (request,response){
 
 app.get('/Detailpage/:id', function (request, response) {
     const id = request.params.id
+    const linkedurl =`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`
     fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`)
 
 
@@ -94,9 +98,12 @@ app.get('/Detailpage/:id', function (request, response) {
             if (apiData.data) {/*als data voer dan dit uit */
                 // console.log('data bestaat u gaat nu naar de Detailpage page' + JSON.stringify(apiData))
                 // info gebruiken om die te linken aan apidata.data
+
                 response.render('Detailpage', {
-                    house: apiData.data, images:
-                    favorite_houses.data, messages: messages
+                    house: apiData.data,
+                    images: favorite_houses.data,
+                    messages: messages
+
                 });
                 //     messages moet uitgevoerd worden met de meegegeven array
 
@@ -126,27 +133,22 @@ app.post('/Detailpage/:id/', function (request, response) {
 
 })
 
-
+const test=[];
 app.get('/score/:id', function (request, response) {
-    const id = request.params.id
-    fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`)
+    const listId = request.params.id;
+    // console.log('Fetching data for list ID:', listId);
 
+    const url = `https://fdnd-agency.directus.app/items/f_houses/${listId}`;
 
+    console.log(JSON.stringify(url)+'dit huos')
+    fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${listId}/?fields=*.*.*`)
         .then((apiData) => {
-            // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
-            if (apiData.data) {/*als data voer dan dit uit */
-                // console.log('data bestaat u gaat nu naar de Detailpage page' + JSON.stringify(apiData))
-                // info gebruiken om die te linken aan apidata.data
+            if (apiData.data) { // Checken of deze 2 bestaan
                 response.render('score', {
-                    house: apiData.data, images:
-                    favorite_houses.data, messages: messages
+                    house: apiData.data,
+                    numbers: numbers,
+                    test: test
                 });
-                //     messages moet uitgevoerd worden met de meegegeven array
-
-
-            } else {
-                console.log('No data found for house with id: ' + request.params.id);
-                //     laat de error zien als de data al niet gevonden word
             }
         })
         .catch((error) => {
@@ -154,8 +156,19 @@ app.get('/score/:id', function (request, response) {
         });
 });
 
+
+app.post('/score/:id',async function (request,response){
+    // numbers.push(request.body.number)//verander het getal
+    test.push(request.body.test);
+
+    // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
+
+    response.redirect('/score/'+request.params.id)
+})
 // Stel het poortnummer in waar express op moet gaan luisteren
-app.set('port', process.env.PORT || 8000)
+app.set('port', process.env.PORT || 8001)
+
+
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {

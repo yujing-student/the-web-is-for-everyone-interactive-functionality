@@ -11,6 +11,7 @@ body {
     margin: 0 auto;
     font-family: proximanova, sans-serif;
     width: 100%;
+    line-height: 1.5em;
 }
 
 * {
@@ -31,7 +32,9 @@ body {
 
 
 /*dit staat op volgorde van de ejs detailpage*/
-
+main{
+    margin: 2em 2em 0 0;
+}
 li {
     list-style-type: none;
 }
@@ -39,7 +42,9 @@ li {
 .image-size {
     width: 200px;
 }
-
+.image-grid{
+    padding-left: 2em;
+}
 .houses-images {
     /*object-fit: cover;*/
     height: 200px;
@@ -56,12 +61,15 @@ li {
     grid-template-columns: auto;
     row-gap: 8px;
 }
-
-.text-font {
-    font-size: 1.2em;
+.icons{
+    margin-bottom: -0.2em;
 }
 
-.tuin, .kamers {
+.text-font {
+    /*font-size: 1.2em;*/
+}
+
+.tuin, .kamers,.wonen {
     margin-left: 0.5em;
 }
 
