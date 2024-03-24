@@ -104,7 +104,12 @@ li {
 .submit-score{
     cursor: pointer;
 }
-
+.agen-long-text{
+    height: 3em;
+}
+.special-link{
+    margin-top: 2em;
+}
 
 @media (width >= 400px) {
     .houses {
@@ -136,7 +141,7 @@ li {
         padding-right: 3em;
         width: 17em;
         /*grid-template-rows: 12em 1em 1em 1em 1em 1em;*/
-        grid-template-rows: 12em repeat(5, 1.1em);
+        /*grid-template-rows: 12em repeat(5, 1.1em);*/
         /*    door deze code gaat de tekt  bovenop elkaa zitten*/
     }
 
