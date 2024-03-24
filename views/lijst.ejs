@@ -24,7 +24,7 @@
                 </li>
 
                 <li class="child-li-house-card"><%= house.f_houses_id.postal_code %> <%= house.f_houses_id.city %></li>
-                <li class="child-li-house-card">€<%= house.f_houses_id.price %></li>
+                <li class="child-li-house-card price">€<%= house.f_houses_id.price %></li>
                 <li class=" agen-long-text"><%= house.f_houses_id.agent %></li>
                 <li class="child-li-house-card"> <a class="special-link" href="../score/<%=house.f_houses_id.id %>">ga naar score</a>
 
@@ -35,14 +35,14 @@
                 <label for="numbers">geef je beoordeling
                     <input type="number" id="bericht" required name="number" value="0">
                 </label>
-                <button type="submit" class="button-notes notes">laat je notite achter</button>
+                <button type="submit" class="button-notes notes">geef je cijfer</button>
 
             </form>
 
             <h2 class="berichten-score">beoordeling</h2>
             <ul class="output">
                 <% numbers.forEach(number =>{ %>
-                    <li class="message"><%= number %></li>
+                    <li class="message">Cijfer: <%= number %></li>
                 <% }) %>
 
             </ul>

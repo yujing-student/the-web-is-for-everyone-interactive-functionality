@@ -85,11 +85,14 @@ li {
 
 
 .child-li-house-card {
-    height: 1em;
+    height: 1.2em;
     line-height: 1.5em;
     /*    hoogte bepalen van de tekstbinnen de kaart van ieder li element*/
 }
-
+.price{
+    font-size: 1.2em;
+    font-weight: bold;
+}
 .green_icon {
     display: none;
 }
