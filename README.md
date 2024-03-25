@@ -8,7 +8,7 @@
   * [Beschrijving](#beschrijving)
   * [Gebruik](#gebruik)
   * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
+
   * [Bronnen](#bronnen)
   * [Licentie](#licentie)
 
@@ -19,12 +19,19 @@
 
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+Je ddrukt op de groen knop downloaden als zip daarna kan je in je code editor het project openen en
+vervolgens voer je in je terminal
 
+```
+npm install
+```
+en daarna 
+```
+npm start om het programma op te starten
+```
+en dan zie je verolgens localhost:8000
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
-
-## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
 
 
 ## Bronnen
