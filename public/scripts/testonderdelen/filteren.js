@@ -82,6 +82,39 @@ app.get("/", async (request, response) => {
 })
 
 
+app.get('/test', async function (request, response) {
+    const listId = request.params.id
+    fetchJson(`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`)
+        // je kan geen 2x then met houses,favorite doen en niet 2x naast elkaar fetchjson dus dit moet met een promise all
+        .then((favorite_houses) => {
+            // console.log('data bestaat u gaat nu naar de favoreiten page'+JSON.stringify(favorite_houses))
+            // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
+            if (favorite_houses.data) {/*als data voer dan dit uit */
+                // console.log(favorite_houses)
+                response.render('test', {
+                    houses: favorite_houses.data.map((house) => {
+                        // Iterate over the houses array to get each house's details
+                        return house.houses.map((houseDetail) => {
+                            // Access street, house number, and city from houses_id object within each house in houses array
+                            return {
+                                id: houseDetail.f_houses_id.id,
+                                image: houseDetail.f_houses_id.poster_image,
+                                street: houseDetail.f_houses_id.street,
+                                houseNumber: houseDetail.f_houses_id.house_nr,
+                                city: houseDetail.f_houses_id.city,
+                            };
+                        });
+                    }),
+                });
+            }
+            //     todo er moet iets gebueren dat de images van de huizen zichtbaar is met de tekst zie lijsten:id
+
+
+        })
+        .catch((error) => {
+            console.error('Error fetching house data:', error);
+        });
+});
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
 

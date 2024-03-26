@@ -14,9 +14,21 @@ const favorite_houses = await fetchJson('https://fdnd-agency.directus.app/items/
 const favorite_hous_id_1 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:1}`)
 const favorite_hous_id_2 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:2}`)
 const favorite_hous_id_3 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:3}`)
-const numbers = []//dit is voor huizenlijsten
+
+
+
+const algemeen = []//dit is voor huizenlijsten
+const keuken = []//dit is voor huizenlijsten
+const badkamer = []//dit is voor huizenlijsten
+const tuin = []//dit is voor huizenlijsten
+const prijs = []//dit is voor huizenlijsten
+const ligging = []//dit is voor huizenlijsten
+const oppervlakte = []//dit is voor huizenlijsten
+
+
 const messages = []//dit is voor de detailpage
 
+const message_score_page=[];
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
 // gebruik ejs voor het tonen van de informatie aan de gebruiker
@@ -66,9 +78,7 @@ app.get('/lijsten/:id', function (request, response) {
                 response.render('lijst.ejs', {
                     list: apiData.data,
                     // houses:specify_houses,
-                    houses: apiData.data.houses,
-                    numbers: numbers,
-                    messages: messages
+                    houses: apiData.data.houses
                 });
             }
         })
@@ -78,12 +88,12 @@ app.get('/lijsten/:id', function (request, response) {
 });
 
 app.post('/lijsten/:id',async function (request,response){
-    // numbers.push(request.body.number)//verander het getal
-    numbers.push(request.body.number);
+
+
 
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
-    response.redirect('/lijsten/'+request.params.id)
+    response.redirect(303,'/lijsten/'+request.params.id)
 })
 
 
@@ -133,7 +143,7 @@ app.post('/Detailpage/:id/', function (request, response) {
 
 })
 
-const test=[];
+
 app.get('/score/:id', function (request, response) {
     const listId = request.params.id;
     // console.log('Fetching data for list ID:', listId);
@@ -146,8 +156,14 @@ app.get('/score/:id', function (request, response) {
             if (apiData.data) { // Checken of deze 2 bestaan
                 response.render('score', {
                     house: apiData.data,
-                    numbers: numbers,
-                    test: test
+                    algemeen: algemeen,
+                    keuken: keuken,
+                    badkamer: badkamer,
+                    tuin: tuin,
+                    prijs: prijs,
+                    ligging: ligging,
+                    oppervlakte: oppervlakte,
+                    notities: message_score_page
                 });
             }
         })
@@ -159,12 +175,23 @@ app.get('/score/:id', function (request, response) {
 
 app.post('/score/:id',async function (request,response){
     // numbers.push(request.body.number)//verander het getal
-    test.push(request.body.test);
+    message_score_page.push(request.body.test);
+    algemeen.push(request.body.number)
+    keuken.push(request.body.keukennumber)
+    keuken.push(request.body.badkamer_nr)
+    tuin.push(request.body.badkamer_nr)
+    prijs.push(request.body.number)
+    ligging.push(request.body.number)
+    oppervlakte.push(request.body.number)
+
 
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
     response.redirect('/score/'+request.params.id)
 })
+
+
+
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8001)
 
