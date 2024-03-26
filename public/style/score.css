@@ -1,8 +1,52 @@
+@font-face {
+    font-family: "proximanova";
+    src: url("/public/assets/font/ProximaNova-Regular_2607783814.otf");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0 auto;
+    font-family: proximanova, sans-serif;
+    width: 100%;
+    line-height: 1.5em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*https://brand.funda.nl/d/d9gw4zTPqYFU/brand-guide?#/basics-1/kleur*/
+/*general*/
+:root {
+    --blue: #0042B3; /*huisstijl #0071B3 orgineel*/
+    --white: #ffffff;
+    --orange: #F7A100;
+    --black: #333333;
+    --gray: #dddddd;
+
+    --margin-input-fields: 0 0 1em 0;
+    --margin-2-em: 2em;
+}
+main {
+    margin: 2em 2em 2em 1em;
+}
+
+li {
+    list-style-type: none;
+}
+
+
 .users-section-score{
     /*width: ;*/
 }
 .user-profiles{
     width: 150px;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .score-range{
     display: grid;
@@ -10,3 +54,41 @@
     margin-bottom: 1em;
     max-width: 21em;
 }
+.show-the-scores,.give-score{
+    background-color: #e6f2f7;
+    padding: 1em;
+    min-width: 300px;
+
+}
+.give-score,.show-the-scores{
+    margin-top: 2em;
+}
+.inputfields{
+    display: grid;
+    /*grid-template-columns: repeat(2, 1fr);*/
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+.label-inputfield{
+    display: grid;
+    grid-template-columns: 5em 8em;
+}
+.input_fields{
+
+}
+.submit-cijfer{
+    width: 10em;
+}
+
+@media (width >= 570px) {
+   .inputfields{
+       grid-template-columns: 16em 13em;
+   }
+
+}
+
+/*.grid-containter-inputfields{*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(2, 1fr);*/
+/*    grid-gap: 10px;*/
+/*}*/

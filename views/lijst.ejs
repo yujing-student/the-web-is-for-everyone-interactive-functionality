@@ -4,11 +4,16 @@
 <section class="users-section">
     <h2>gebruikers</h2>
     <p>klik op je icoontje om je eigen lijst te zien nu zit je in de gezamelijke lijst</p>
-    <img src="../images/geel.jpg" class="user-profiles" alt="user geel">
-    <img src="../images/blauw.jpg" class="user-profiles" alt="user geel">
-    <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
-    <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
+    <div class="styling-images-user">
+        <img src="../images/geel.jpg" class="user-profiles" alt="user geel">
+        <img src="../images/blauw.jpg" class="user-profiles" alt="user geel">
+        <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
+        <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
+    </div>
+
 </section>
+
+
 <div class="grid-container-houses-lijst">
 
     <% list.houses.forEach(house => { %>
@@ -26,26 +31,10 @@
                 <li class="child-li-house-card"><%= house.f_houses_id.postal_code %> <%= house.f_houses_id.city %></li>
                 <li class="child-li-house-card price">€<%= house.f_houses_id.price %></li>
                 <li class=" agen-long-text"><%= house.f_houses_id.agent %></li>
-                <li class="child-li-house-card"> <a class="special-link" href="../score/<%=house.f_houses_id.id %>">ga naar score</a>
+                <li class="child-li-house-card"> <a class="special-link" href="../score/<%=house.f_houses_id.id %>">geef score</a>
 
                 </ul>
 
-            <form method="POST" action="/lijsten/<%= house.id %>" class="chatbox">
-                <input type="hidden" value="<%= house.id %>">
-                <label for="numbers">geef je beoordeling
-                    <input type="number" id="bericht" required name="number" value="0">
-                </label>
-                <button type="submit" class="button-notes notes">geef je cijfer</button>
-
-            </form>
-
-            <h2 class="berichten-score">beoordeling</h2>
-            <ul class="output">
-                <% numbers.forEach(number =>{ %>
-                    <li class="message">Cijfer: <%= number %></li>
-                <% }) %>
-
-            </ul>
 
         </article>
     <% }); %>
