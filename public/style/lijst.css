@@ -100,7 +100,7 @@ li {
     font-size: 1.2em;
     font-weight: bold;
 }
-
+/*todo hover states op option dus de sorteer functie en de pagina mist nog veel opmaak*/
 .submit-score{
     cursor: pointer;
 }
@@ -115,7 +115,8 @@ li {
     .grid-container-houses-lijst {
         display: grid;
         grid-template-columns: repeat(auto-fit, 26em);
-        gap: 1em;
+        /*gap: 1em;*/
+        row-gap: 3em;
         margin: 2em;
     }
     .image-house-data{

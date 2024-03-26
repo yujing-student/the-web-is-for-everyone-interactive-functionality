@@ -69,17 +69,15 @@ main {
 }
 
 .input-search:focus {
-    background-color: yellow;
+    background-color: var(--orange);
 }
 
 .styling-searchbutton {
     background-color: var(--orange);
     grid-row: 3;
 }
-
-
-.styling-searchbutton:hover {
-    background-color: var(--blue);
+option:focus-visible{
+    background-color: var(--orange);
 }
 
 #filters {
@@ -88,8 +86,8 @@ main {
 
 .grid-house-lists{
     display: grid;
-    gap: 0.5em;
-    grid-template-columns: repeat(auto-fit, 26em);
+    gap: 3.5em;
+    grid-template-columns: repeat(auto-fit, 23em);
 
 }
 .names-of-houses {
