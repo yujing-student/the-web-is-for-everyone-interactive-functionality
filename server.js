@@ -17,18 +17,11 @@ const favorite_hous_id_3 = await fetchJson(`https://fdnd-agency.directus.app/ite
 
 
 
-const algemeen = []//dit is voor huizenlijsten
-const keuken = []//dit is voor huizenlijsten
-const badkamer = []//dit is voor huizenlijsten
-const tuin = []//dit is voor huizenlijsten
-const prijs = []//dit is voor huizenlijsten
-const ligging = []//dit is voor huizenlijsten
-const oppervlakte = []//dit is voor huizenlijsten
 
 
 const messages = []//dit is voor de detailpage
 
-const message_score_page=[];
+
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
 // gebruik ejs voor het tonen van de informatie aan de gebruiker
@@ -143,7 +136,14 @@ app.post('/Detailpage/:id/', function (request, response) {
 
 })
 
-
+const algemeen = []//dit is voor huizenlijsten
+const keuken = []//dit is voor huizenlijsten
+const badkamer = []//dit is voor huizenlijsten
+const tuin = []//dit is voor huizenlijsten
+const prijs = []//dit is voor huizenlijsten
+const ligging = []//dit is voor huizenlijsten
+const oppervlakte = []//dit is voor huizenlijsten
+const message_score_page_data=[];
 app.get('/score/:id', function (request, response) {
     const listId = request.params.id;
     // console.log('Fetching data for list ID:', listId);
@@ -163,7 +163,7 @@ app.get('/score/:id', function (request, response) {
                     prijs: prijs,
                     ligging: ligging,
                     oppervlakte: oppervlakte,
-                    notities: message_score_page
+                    notities: message_score_page_data
                 });
             }
         })
@@ -175,19 +175,28 @@ app.get('/score/:id', function (request, response) {
 
 app.post('/score/:id',async function (request,response){
     // numbers.push(request.body.number)//verander het getal
-    message_score_page.push(request.body.test);
-    algemeen.push(request.body.number)
-    keuken.push(request.body.keukennumber)
-    keuken.push(request.body.badkamer_nr)
-    tuin.push(request.body.badkamer_nr)
-    prijs.push(request.body.number)
-    ligging.push(request.body.number)
-    oppervlakte.push(request.body.number)
+    const message_score_page = request.body.test;
+    const algemeenNumber = request.body.algemeenNumber;
+
+    const keukenNumber = request.body.keukenNumber;
+    const badkamerNumber = request.body.badkamerNumber;
+    const tuinNumber = request.body.tuinNumber;
+
+    algemeen.push(algemeenNumber);
+    keuken.push(keukenNumber);
+    badkamer.push(badkamerNumber);
+    tuin.push(tuinNumber);
+
+
+
+    message_score_page_data.push(message_score_page);
+
+
 
 
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
-    response.redirect('/score/'+request.params.id)
+    response.redirect(303,'/score/'+request.params.id)
 })
 
 
