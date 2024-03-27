@@ -169,29 +169,32 @@ app.get('/score/:id', function (request, response) {
         });
 });
 
-
 app.post('/score/:id', async function (request, response) {
-    // numbers.push(request.body.number)//verander het getal
-    const message_score_page = request.body.test;
-    const algemeenNumber = request.body.algemeenNumber;
+    try {
+        // Get the request body data
+        const message_score_page = request.body.test;
+        const algemeenNumber = request.body.algemeenNumber;
+        const keukenNumber = request.body.keukenNumber;
+        const badkamerNumber = request.body.badkamerNumber;
+        const tuinNumber = request.body.tuinNumber;
 
-    const keukenNumber = request.body.keukenNumber;
-    const badkamerNumber = request.body.badkamerNumber;
-    const tuinNumber = request.body.tuinNumber;
+        // Push the data to the respective arrays
+        algemeen.push(algemeenNumber);
+        keuken.push(keukenNumber);
+        badkamer.push(badkamerNumber);
+        tuin.push(tuinNumber);
+        message_score_page_data.push(message_score_page);
 
-    algemeen.push(algemeenNumber);
-    keuken.push(keukenNumber);
-    badkamer.push(badkamerNumber);
-    tuin.push(tuinNumber);
+        // Redirect the user to the score page
+        response.redirect(303, '/score/' + request.params.id);
+    } catch (error) {
+        // Log the error
+        console.error('Error saving score:', error);
 
-
-    message_score_page_data.push(message_score_page);
-
-
-    // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
-
-    response.redirect(303, '/score/' + request.params.id)
-})
+        // Redirect the user back to the score page with an error message
+        response.redirect(303, '/score/' + request.params.id + '?error=' + error.message);
+    }
+});
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren

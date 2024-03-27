@@ -28,14 +28,16 @@ body {
 * {
     box-sizing: border-box;
 }
-li{
+
+li {
     list-style-type: none;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--black);
 }
+
 header {
     background-color: var(--orange
     );

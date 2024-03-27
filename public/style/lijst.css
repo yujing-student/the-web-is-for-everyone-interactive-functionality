@@ -121,7 +121,8 @@ li {
     .grid-container-houses-lijst {
         display: grid;
         grid-template-columns: repeat(auto-fit, 26em);
-        /*gap: 1em;*/
+        /*autofit betekend dat iedere colum afgesteld word aa de minimale breeedte
+         van het element zelf en de content en de maximun is 26 em*/
         row-gap: 3em;
         margin: 2em;
     }
