@@ -158,6 +158,10 @@ li {
 .message {
     list-style: disc;
 }
+.go-to-score{
+    color: var(--blue);
+    font-size: 1.1em;
+}
 
 @media (min-width: 650px) {
 
