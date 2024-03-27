@@ -83,7 +83,9 @@ option:focus-visible{
 #filters {
     max-width: 10em;
 }
-
+article{
+    border: solid #dddddd;
+}
 .grid-house-lists{
     display: grid;
     gap: 3.5em;
@@ -98,10 +100,19 @@ option:focus-visible{
 
 }
 
+.button-got-list{
+    width: 10em;
+    background-color: #F7A100;
+    border: none;
+    font-size: 1.3em;
+    color: black;
 
+}
 .link-to-house {
     font-size: 1em;
     font-weight: bold;
+    text-decoration: none;
+    color: var(--blue);
 
 }
 
@@ -114,7 +125,6 @@ option:focus-visible{
 }
 
 
-
 .border-top:not(:first-child) {
     margin-top: 1em;
 }
@@ -122,9 +132,7 @@ option:focus-visible{
 /*de 1ste item moet geen border hebben omdat dit lelijk is*/
 
 @media (width >= 600px) {
-    article{
-        border: solid #dddddd;
-    }
+
     .names-of-houses {
         /*margin-left: 0.5em;*/
         max-width: 86em;
@@ -133,11 +141,27 @@ option:focus-visible{
         /*height: 30em;*/
 
     }
+
+    .grid-house-lists{
+        display: grid;
+        gap: 3.5em;
+        grid-template-columns: repeat(auto-fit, 25em);
+
+    }
     .height-li-items{
         /*height: 1em;*/
+        /*height: 3em;*/
+
     }
     .height-li-items-omschrijving{
-        /*height: 5em;*/
+        height: 5em;
+    }
+
+    .height-li-items-title{
+        /*height: 3em;*/
+    }
+    .omschrijving_li_items{
+
     }
 
 }

@@ -9,7 +9,7 @@
             </label>
             <button type="submit" class="styling-searchbutton">zoeken</button>
         </form>
-        <label for="filters">kies op welke lijst je wilt filteren</label><select id="filters">
+        <label for="filters">Kies op welke lijst je wilt filteren</label><select id="filters">
             <% houses.forEach(house => { %>
             <option value="lijst1"><%= house.title %></option>
                 <% }) %>
@@ -19,7 +19,8 @@
     </section>
 
     <section>
-        <h2>uw huizen lijsten</h2>
+        <h2>Uw huizen lijsten</h2>
+        <p>Klik op de titel of afbeelding van het huis om naar de huizen lijst te gaan te gaan</p>
 
 
         <div class="grid-house-lists">
@@ -28,11 +29,15 @@
 
             <article>
                 <ol class="names-of-houses">
-                    <li><img src="images/hoouse-icon.jpg" class="image-size"> </li>
-                    <li class="height-li-items"><a href="/lijsten/<%= house.id %>"
-                           class="link-to-house height-li-items">Titel van het huis: <%= house.title %></a></li>
-                    <li class="height-li-items">Dit zijn uw huizen: <%= house.houses %></li>
+
+                    <a><a href="/lijsten/<%= house.id %>"></a><img src="images/hoouse-icon.jpg" class="image-size"> </a></li>
+                    <li class="height-li-items  height-li-items-title">Titel van het huis: <a href="/lijsten/<%= house.id %>"
+                           class="link-to-house"><%= house.title %></a></li>
+                    <li class="height-li-items omschrijving_li_items">Omschrijving: <%= house.description %></li>
+<!--                    <button type="button" class="button-got-list"><a href="/lijsten/<%= house.id %>">bekijk lijst</a></button>-->
+
                 </ol>
+
 
             </article>
 

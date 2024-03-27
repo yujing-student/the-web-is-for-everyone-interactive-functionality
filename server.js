@@ -16,9 +16,6 @@ const favorite_hous_id_2 = await fetchJson(`https://fdnd-agency.directus.app/ite
 const favorite_hous_id_3 = await fetchJson(`https://fdnd-agency.directus.app/items/f_list?filter={%22id%22:3}`)
 
 
-
-
-
 const messages = []//dit is voor de detailpage
 
 
@@ -66,6 +63,7 @@ app.get('/lijsten/:id', function (request, response) {
 
 // const specify_houses = `https://fdnd-agency.directus.app/items/f_houses/${houseID}/?fields=*.*.*`
     fetchJson(`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`)
+
         .then((apiData) => {
             if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
                 response.render('lijst.ejs', {
@@ -80,19 +78,18 @@ app.get('/lijsten/:id', function (request, response) {
         });
 });
 
-app.post('/lijsten/:id',async function (request,response){
-
+app.post('/lijsten/:id', async function (request, response) {
 
 
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
-    response.redirect(303,'/lijsten/'+request.params.id)
+    response.redirect(303, '/lijsten/' + request.params.id)
 })
 
 
 app.get('/Detailpage/:id', function (request, response) {
     const id = request.params.id
-    const linkedurl =`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`
+    const linkedurl = `https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`
     fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${id}/?fields=*.*.*`)
 
 
@@ -143,14 +140,14 @@ const tuin = []//dit is voor huizenlijsten
 const prijs = []//dit is voor huizenlijsten
 const ligging = []//dit is voor huizenlijsten
 const oppervlakte = []//dit is voor huizenlijsten
-const message_score_page_data=[];
+const message_score_page_data = [];
 app.get('/score/:id', function (request, response) {
     const listId = request.params.id;
     // console.log('Fetching data for list ID:', listId);
 
     const url = `https://fdnd-agency.directus.app/items/f_houses/${listId}`;
 
-    console.log(JSON.stringify(url)+'dit huos')
+    console.log(JSON.stringify(url) + 'dit huos')
     fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${listId}/?fields=*.*.*`)
         .then((apiData) => {
             if (apiData.data) { // Checken of deze 2 bestaan
@@ -173,7 +170,7 @@ app.get('/score/:id', function (request, response) {
 });
 
 
-app.post('/score/:id',async function (request,response){
+app.post('/score/:id', async function (request, response) {
     // numbers.push(request.body.number)//verander het getal
     const message_score_page = request.body.test;
     const algemeenNumber = request.body.algemeenNumber;
@@ -188,22 +185,17 @@ app.post('/score/:id',async function (request,response){
     tuin.push(tuinNumber);
 
 
-
     message_score_page_data.push(message_score_page);
-
-
 
 
     // todo als een gebruiker een getal invoert dan moet er ook een groen vinkje tevoorschijn komen vanuit de server
 
-    response.redirect(303,'/score/'+request.params.id)
+    response.redirect(303, '/score/' + request.params.id)
 })
-
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8001)
-
 
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op
