@@ -85,11 +85,12 @@ option:focus-visible{
 }
 article{
     border: solid #dddddd;
+    width: 21em;
 }
 .grid-house-lists{
     display: grid;
     gap: 3.5em;
-    grid-template-columns: repeat(auto-fit, 23em);
+    grid-template-columns: repeat(auto-fit, 18em);
 
 }
 .names-of-houses {
@@ -99,7 +100,12 @@ article{
     /*border: solid #dddddd;*/
 
 }
-
+.user-profiles {
+    width: 170px;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
 .button-got-list{
     width: 10em;
     background-color: #F7A100;
@@ -129,7 +135,18 @@ article{
     margin-top: 1em;
 }
 
+
+
 /*de 1ste item moet geen border hebben omdat dit lelijk is*/
+@media (width >= 400px) {
+    .grid-house-lists{
+
+        grid-template-columns: repeat(auto-fit, 23em);
+
+    }
+
+}
+
 
 @media (width >= 600px) {
 
@@ -142,6 +159,9 @@ article{
 
     }
 
+    .image_house_icon{
+        margin-left: -2em;
+    }
     .grid-house-lists{
         display: grid;
         gap: 3.5em;
@@ -164,11 +184,5 @@ article{
 
     }
 
-    .user-profiles {
-        width: 170px;
-        padding-bottom: 1em;
-        padding-left: 1em;
-        padding-right: 1em;
-    }
 
 }
