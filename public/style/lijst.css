@@ -109,8 +109,13 @@ li {
 }
 .special-link{
     margin-top: 2em;
+    color:var(--blue)
 }
-
+.button-score-page{
+    background-color: transparent;
+    font-size: 1.1em;
+    border: none;
+}
 @media (width >= 400px) {
     .grid-container-houses-lijst {
         display: grid;
@@ -132,7 +137,7 @@ li {
         object-fit: cover;
     }
     .user-profiles {
-        width: 200px;
+        width: 170px;
         padding-bottom: 1em;
         padding-left: 1em;
         padding-right: 1em;

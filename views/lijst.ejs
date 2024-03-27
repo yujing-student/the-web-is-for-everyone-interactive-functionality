@@ -31,7 +31,12 @@
                 <li class="child-li-house-card"><%= house.f_houses_id.postal_code %> <%= house.f_houses_id.city %></li>
                 <li class="child-li-house-card price">€<%= house.f_houses_id.price %></li>
                 <li class=" agen-long-text"><%= house.f_houses_id.agent %></li>
-                <li class="child-li-house-card"> <a class="special-link" href="../score/<%=house.f_houses_id.id %>">geef score</a>
+                <li class="child-li-house-card">
+                    <button class="button-score-page">
+                        <a class="special-link" href="../score/<%=house.f_houses_id.id %>">Bekijk de score
+                        </a>
+                    </button>
+
 
                 </ul>
 
