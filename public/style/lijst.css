@@ -114,6 +114,7 @@ li {
 .button-score-page{
     background-color: transparent;
     font-size: 1.1em;
+    padding: 0;
     border: none;
 }
 @media (width >= 400px) {
