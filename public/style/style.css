@@ -145,7 +145,7 @@ article{
     .grid-house-lists{
         display: grid;
         gap: 3.5em;
-        grid-template-columns: repeat(auto-fit, 25em);
+        grid-template-columns: repeat(auto-fit,23em);
 
     }
     .height-li-items{
@@ -158,7 +158,7 @@ article{
     }
 
     .height-li-items-title{
-        /*height: 3em;*/
+        height: 3em;
     }
     .omschrijving_li_items{
 
