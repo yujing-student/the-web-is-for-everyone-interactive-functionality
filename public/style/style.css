@@ -164,4 +164,11 @@ article{
 
     }
 
+    .user-profiles {
+        width: 170px;
+        padding-bottom: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
 }
