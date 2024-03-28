@@ -39,7 +39,7 @@ app.get('/', async function (request, response) {
             if (favorite_houses.data) {/*als data voer dan dit uit */
                 // console.log(favorite_houses)
                 response.render('index', {
-                    houses:
+                    lists:
                     favorite_houses.data
 
                 });
