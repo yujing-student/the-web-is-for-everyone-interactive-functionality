@@ -43,9 +43,9 @@ app.get('/', async function (request, response) {
             const housedetails = favorite_houses.data.map(listItem => ({
                 id: listItem.id,
                 title: listItem.title,
-                houses: listItem.houses.map(house => ({
+                houses_array: listItem.houses.map(house => ({
                     id: house.id,
-                    l: house.f_houses_id.poster_image
+                    image: house.f_houses_id.poster_image
                 }))
             }));
 
