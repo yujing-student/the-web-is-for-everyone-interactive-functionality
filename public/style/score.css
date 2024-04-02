@@ -42,6 +42,9 @@ li {
 .users-section-score{
     /*width: ;*/
 }
+.output{
+    padding: 0;
+}
 .user-profiles{
     width: 150px;
     padding-bottom: 1em;
@@ -57,7 +60,7 @@ li {
 .show-the-scores,.give-score{
     background-color: #e6f2f7;
     padding: 1em;
-    min-width: 300px;
+    /*min-width: 300px;*/
 
 }
 .give-score,.show-the-scores{

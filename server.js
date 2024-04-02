@@ -31,16 +31,22 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', async function (request, response) {
-    fetchJson('https://fdnd-agency.directus.app/items/f_list')
+    const listId = request.params.id;
+
+    const url =`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`
+
+    fetchJson(`https://fdnd-agency.directus.app/items/f_list/`)
         // je kan geen 2x then met houses,favorite doen en niet 2x naast elkaar fetchjson dus dit moet met een promise all
         .then((favorite_houses) => {
             // console.log('data bestaat u gaat nu naar de favoreiten page'+JSON.stringify(favorite_houses))
             // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
             if (favorite_houses.data) {/*als data voer dan dit uit */
-                // console.log(favorite_houses)
+                console.log(JSON.stringify(favorite_houses.data.houses))
                 response.render('index', {
                     lists:
                     favorite_houses.data
+                    // housesimage:favorite_houses.data.houses.f_houses_id
+
 
                 });
             }
@@ -197,8 +203,31 @@ app.post('/score/:id', async function (request, response) {
 });
 
 
+app.get('/test/:id', function (request, response) {
+    const listId = request.params.id;
+    // console.log('Fetching data for list ID:', listId);
+
+// const specify_houses = `https://fdnd-agency.directus.app/items/f_houses/${houseID}/?fields=*.*.*`
+    fetchJson(`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`)
+
+        .then((apiData) => {
+            if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
+
+                console.log(JSON.stringify(apiData.data.houses))
+                response.render('test', {
+                    list: apiData.data,
+                    // houses:specify_houses,
+                    houses: apiData.data.houses
+                });
+            }
+        })
+        .catch((error) => {
+            console.error('Error fetching house data:', error);
+        });
+});
+
 // Stel het poortnummer in waar express op moet gaan luisteren
-app.set('port', process.env.PORT || 8001)
+app.set('port', process.env.PORT || 8000)
 
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op
