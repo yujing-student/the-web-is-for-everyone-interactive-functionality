@@ -29,8 +29,10 @@
                 <article>
                     <ol class="names-of-houses">
 
-                        <li><a><a href="/lijsten/<%= list.id %>"></a><img src="images/hoouse-icon.jpg"
-                                                                           class="image-size image_house_icon"> </a>
+                        <li><a href="/lijsten/<%= list.id %>"></a>
+
+
+                            <img src="https://fdnd-agency.directus.app/assets/<%= list.houses[0].l %>" alt="House Image" class="image-size image_house_icon">
                         </li>
                         <li class="height-li-items  height-li-items-title"><a
                                     href="/lijsten/<%= list.id %>"
@@ -41,11 +43,11 @@
 
                     </ol>
 
-
                 </article>
 
             <% }) %>
         </div>
+
 
     </section>
 

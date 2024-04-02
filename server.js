@@ -31,32 +31,34 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}));
 
 app.get('/', async function (request, response) {
-    const listId = request.params.id;
 
-    const url =`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`
+    const url = `https://fdnd-agency.directus.app/items/f_list/?fields=*.*.*`;
 
-    fetchJson(`https://fdnd-agency.directus.app/items/f_list/`)
-        // je kan geen 2x then met houses,favorite doen en niet 2x naast elkaar fetchjson dus dit moet met een promise all
-        .then((favorite_houses) => {
-            // console.log('data bestaat u gaat nu naar de favoreiten page'+JSON.stringify(favorite_houses))
-            // request.params.id gebruik je zodat je de exacte student kan weergeven dit si een routeparmater naar de route van die persoon
-            if (favorite_houses.data) {/*als data voer dan dit uit */
-                console.log(JSON.stringify(favorite_houses.data.houses))
-                response.render('index', {
-                    lists:
-                    favorite_houses.data
-                    // housesimage:favorite_houses.data.houses.f_houses_id
+    try {
+        const favorite_houses = await fetchJson(url); // Store fetched data in a variable
+        if (favorite_houses.data) {
+            console.log(JSON.stringify(favorite_houses.data[1].houses[1].f_houses_id.poster_image));
 
+            // Create housedetails array for rendering
+            const housedetails = favorite_houses.data.map(listItem => ({
+                id: listItem.id,
+                title: listItem.title,
+                houses: listItem.houses.map(house => ({
+                    id: house.id,
+                    l: house.f_houses_id.poster_image
+                }))
+            }));
 
-                });
-            }
-            //     todo er moet iets gebueren dat de images van de huizen zichtbaar is met de tekst zie lijsten:id
-
-
-        })
-        .catch((error) => {
-            console.error('Error fetching house data:', error);
-        });
+            // Render the template with the modified housedetails array
+            response.render('index', { lists: housedetails });
+        } else {
+            console.error('No favorite houses data found');
+            // Render an appropriate message or view if no data is found
+        }
+    } catch (error) {
+        console.error('Error fetching house data:', error);
+        // Render an error message or view if fetching fails
+    }
 });
 // in deze code heb ik ebwust gekozen voor asyinc en await omdat de fetchjson een promise is
 

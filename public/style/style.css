@@ -100,6 +100,10 @@ article{
     /*border: solid #dddddd;*/
 
 }
+.image_house_icon{
+    /*margin-left: -2em;*/
+    width: 150px;
+}
 .user-profiles {
     width: 170px;
     padding-bottom: 1em;
@@ -160,7 +164,8 @@ article{
     }
 
     .image_house_icon{
-        margin-left: -2em;
+        /*margin-left: -2em;*/
+        width: 150px;
     }
     .grid-house-lists{
         display: grid;
@@ -178,7 +183,7 @@ article{
     }
 
     .height-li-items-title{
-        height: 3em;
+        height: 2em;
     }
     .omschrijving_li_items{
 
