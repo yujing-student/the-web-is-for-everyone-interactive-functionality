@@ -34,22 +34,23 @@ app.get('/', async function (request, response) {
 
     const url = `https://fdnd-agency.directus.app/items/f_list/?fields=*.*.*`;
 
+
     try {
-        const favorite_houses = await fetchJson(url); // Store fetched data in a variable
+        const favorite_houses = await fetchJson(url); // use this instead of .then because the favorite houses must have 1 array with more arrays in it
         if (favorite_houses.data) {
             console.log(JSON.stringify(favorite_houses.data[1].houses[1].f_houses_id.poster_image));
 
-            // Create housedetails array for rendering
+            // 2 nested arrays
             const housedetails = favorite_houses.data.map(listItem => ({
                 id: listItem.id,
                 title: listItem.title,
+                // houses arrya is de nummers van die huizen en de inhoud daarvan
                 houses_array: listItem.houses.map(house => ({
                     id: house.id,
                     image: house.f_houses_id.poster_image
                 }))
             }));
 
-            // Render the template with the modified housedetails array
             response.render('index', { lists: housedetails });
         } else {
             console.error('No favorite houses data found');
@@ -57,11 +58,8 @@ app.get('/', async function (request, response) {
         }
     } catch (error) {
         console.error('Error fetching house data:', error);
-        // Render an error message or view if fetching fails
     }
 });
-// in deze code heb ik ebwust gekozen voor asyinc en await omdat de fetchjson een promise is
-
 
 app.get('/lijsten/:id', function (request, response) {
     const listId = request.params.id;
@@ -205,27 +203,25 @@ app.post('/score/:id', async function (request, response) {
 });
 
 
-app.get('/test/:id', function (request, response) {
-    const listId = request.params.id;
-    // console.log('Fetching data for list ID:', listId);
+app.get('/test/', async function (request, response) {
 
 // const specify_houses = `https://fdnd-agency.directus.app/items/f_houses/${houseID}/?fields=*.*.*`
-    fetchJson(`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`)
+    fetchJson(`https://fdnd-agency.directus.app/items/f_list/?fields=*.*.*`)
 
-        .then((apiData) => {
-            if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
-
-                console.log(JSON.stringify(apiData.data.houses))
-                response.render('test', {
-                    list: apiData.data,
-                    // houses:specify_houses,
-                    houses: apiData.data.houses
-                });
-            }
-        })
-        .catch((error) => {
-            console.error('Error fetching house data:', error);
-        });
+    try {
+        const apiData = await fetchJson(`https://fdnd-agency.directus.app/items/f_list/?fields=*.*.*`);
+        if (apiData.data) {
+            response.render('test', {
+                list: apiData.data,
+            });
+        } else {
+            // Handle the case where no data is found
+            response.status(404).send('List not found'); // Or a custom error message
+        }
+    } catch (error) {
+        console.error('Error fetching house data:', error);
+        response.status(500).send('Internal Server Error'); // Or a custom error message
+    }
 });
 
 // Stel het poortnummer in waar express op moet gaan luisteren

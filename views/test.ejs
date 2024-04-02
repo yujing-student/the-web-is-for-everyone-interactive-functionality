@@ -1,48 +1,20 @@
 <%- include('./partials/head-lijst') %>
 
+<% list.forEach(list => { %>
 
-<section class="users-section">
-    <h2>gebruikers</h2>
-    <p>klik op je icoontje om je eigen lijst of de lijst van een ander te zien</p>
-    <div class="styling-images-user">
-        <img src="../images/geel.jpg" class="user-profiles" alt="user geel">
-        <img src="../images/blauw.jpg" class="user-profiles" alt="user geel">
-        <img src="../images/rood.jpg" class="user-profiles" alt="user geel">
-        <img src="../images/groen.jpg" class="user-profiles" alt="user geel">
-    </div>
+<article>
+    <ol class="names-of-houses">
 
-</section>
+        <li><a href="/lijsten/<%= list.id %>"></a>
+        </li>
+        <li class="height-li-items  height-li-items-title"><a
+                    href="/lijsten/<%= list.id %>"
+                    class="link-to-house"><%= list.title %></a></li>
+        <button type="button" class="button-got-list"><a href="/lijsten/<%= list.id %>">bekijk
+                lijst</a></button>
 
+    </ol>
 
-<div class="grid-container-houses-lijst">
+</article>
 
-    <% list.houses.forEach(house => { %>
-        <!--    hoouses staat niet dubbel dit heb je nodig omdat je de data uit de houses tabel nodig hebt zie de 1ste get route /-->
-
-        <article class="houses">
-            <ul class="image-house-data">
-                <li><img class="image-size"
-                         src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
-                         alt="image house"></li>
-                <li class="child-li-house-card">
-                    <a href="../Detailpage/<%= house.id %>" class="special-link"><%= house.f_houses_id.street %>
-                        <%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %>
-                    </a>
-                </li>
-
-                <li class="child-li-house-card"><%= house.f_houses_id.postal_code %> <%= house.f_houses_id.city %></li>
-                <li class="child-li-house-card price">€<%= house.f_houses_id.price %></li>
-                <li class=" agen-long-text"><%= house.f_houses_id.agent %></li>
-                <li class="child-li-house-card">
-                    <button class="button-score-page">
-                        <a class="special-link" href="../score/<%=house.f_houses_id.id %>">Bekijk de score
-                        </a>
-                    </button>
-
-
-                </ul>
-
-
-        </article>
-    <% }); %>
-</div>
+<% }) %>
