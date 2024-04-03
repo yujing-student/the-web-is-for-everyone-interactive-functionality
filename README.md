@@ -48,10 +48,17 @@ en dan zie je verolgens localhost:8000
 <li>EJS</li>
 <li>Node js</li>
 <li>css voor de styling</li>
+<li>progressive enhancement</li>
 
 </ul>
 <p>
+Progressive enhancement is dat je 
+vanuit lagen gaat bouwen dus de 1ste laag is de functionaliteit<br>
+de 2de laag is de styling dus de css<br>
+de 3de laag is client side javascript met daarin de extra's zodat de pagina mooier word
 
+<br>
+Het doel is dat je pagina op oude browsers en oude apperaten ook werkt en redelijk funcitoneel is
 </p>
 
 ## Bronnen
