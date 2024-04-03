@@ -1,5 +1,7 @@
 <%- include('./partials/head-lijst') %>
 
+<main>
+
 
 <section class="users-section">
     <h2>gebruikers</h2>
@@ -13,9 +15,16 @@
 
 </section>
 
-
+<section class="users-section">
+    <h2>omschrijving</h2>
+    <ul class="output">
+        <li><%= list.description%></li>
+    </ul>
+</section>
 
 <div class="grid-container-houses-lijst">
+
+
 
     <% list.houses.forEach(house => { %>
         <!--    hoouses staat niet dubbel dit heb je nodig omdat je de data uit de houses tabel nodig hebt zie de 1ste get route /-->
@@ -26,7 +35,7 @@
                          src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>"
                          alt="image house"></li>
                 <li class="child-li-house-card">
-                    <a href="../Detailpage/<%= house.id %>" class="special-link"><%= house.f_houses_id.street %>
+                    <a href="../Detailpage/<%= house.id %>" class="special-link addres"><%= house.f_houses_id.street %>
                         <%= house.f_houses_id.house_nr %><%= house.f_houses_id.house_nr_addition %>
                     </a>
                 </li>
@@ -47,3 +56,4 @@
         </article>
     <% }); %>
 </div>
+</main>

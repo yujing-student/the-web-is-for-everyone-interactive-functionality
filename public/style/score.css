@@ -42,6 +42,10 @@ li {
 .users-section-score{
     /*width: ;*/
 }
+.house{
+    width: 150px;
+
+}
 .output{
     padding: 0;
 }
@@ -57,13 +61,14 @@ li {
     margin-bottom: 1em;
     max-width: 21em;
 }
-.show-the-scores,.give-score{
+.show-the-scores,.give-score,.notes_input{
     background-color: #e6f2f7;
     padding: 1em;
+    margin-top: 2em;
     /*min-width: 300px;*/
 
 }
-.give-score,.show-the-scores{
+.give-score,.show-the-score,.notes_inputs{
     margin-top: 2em;
 }
 .inputfields{
@@ -74,20 +79,132 @@ li {
 }
 .label-inputfield{
     display: grid;
-    grid-template-columns: 5em 8em;
+    grid-template-columns: 6em 8em;
 }
 .input_fields{
 
+}
+.house_details{
+    margin-top: 2em;
+    background-color: #e6f2f7;
+    padding: 1em;
+    max-width: 61em;
+}
+.message{
+    font-size: 1.1em;
+}
+ul{
+    padding: 0;
 }
 .submit-cijfer{
     width: 10em;
 }
 
-@media (width >= 570px) {
-   .inputfields{
-       grid-template-columns: 16em 13em;
-   }
+.button-notes{
+    background-color: #F7A100;
+    border: none;
+    font-size: 1em;
+}
 
+.chatbox{
+    display: flex;
+    flex-direction: column;
+}
+.button-notes{
+    width: 10em;
+}
+.other-users-rating{
+    padding: 1em;
+    margin-top: 5em;
+    max-width: 33em;
+    /*background-color: #e6f2f7;*/
+
+}
+.score-others-grid-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+.users_score_rating{
+    padding: 1em;
+    background-color: #e6f2f7;
+}
+.user{
+    width: 150px;
+}
+@media (width >= 570px) {
+
+    .inputfields{
+        grid-template-columns: 17em;
+    }
+    .output{
+        display: grid;
+        grid-template-columns: 13em 13em;
+    }
+    .house{
+        width: 250px;
+    }
+
+
+}
+@media (width >= 980px) {
+    .house{
+        width: 450px;
+    }
+    .grid-socre_divs{
+        display: grid;
+        grid-template-columns:29em 29em;
+        column-gap: 3em;
+        max-width: 66em;
+    }
+    .score-others-grid-container{
+        display: grid;
+        grid-template-columns: 29em 29em;
+
+        column-gap: 3em;
+    }
+    .title{
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .first_user{
+        display: grid;
+        grid-column: 1;
+        grid-row: 2;
+
+    }
+    .second_user{
+        display: grid;
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+}
+
+@media (width >= 1200px) {
+
+    .house{
+        width: 650px;
+    }
+    .house_details{
+        width: 49em;
+    }
+    .grid-socre_divs{
+        display: grid;
+        grid-template-columns:35em 29em;
+        column-gap: 3em;
+        max-width: 66em;
+    }
+    .inputfields{
+        grid-template-columns: 17em 17em;
+    }
+    .score-others-grid-container{
+        display: grid;
+        grid-template-columns: 35em 29em;
+
+        column-gap: 3em;
+    }
 }
 
 /*.grid-containter-inputfields{*/

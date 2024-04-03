@@ -147,33 +147,35 @@ const prijs = []//dit is voor huizenlijsten
 const ligging = []//dit is voor huizenlijsten
 const oppervlakte = []//dit is voor huizenlijsten
 const message_score_page_data = [];
-app.get('/score/:id', function (request, response) {
+app.get('/score/:id', async function (request, response) {
     const listId = request.params.id;
     // console.log('Fetching data for list ID:', listId);
 
-    const url = `https://fdnd-agency.directus.app/items/f_houses/${listId}`;
+    const url = `https://fdnd-agency.directus.app/items/f_houses/${listId}/?fields=*.*.*`;
+    try {
+        const house_details = await fetchJson(url); // Assuming fetchJson fetches data
 
-    console.log(JSON.stringify(url) + 'dit huos')
-    fetchJson(`https://fdnd-agency.directus.app/items/f_houses/${listId}/?fields=*.*.*`)
-        .then((apiData) => {
-            if (apiData.data) { // Checken of deze 2 bestaan
-                response.render('score', {
-                    house: apiData.data,
-                    algemeen: algemeen,
-                    keuken: keuken,
-                    badkamer: badkamer,
-                    tuin: tuin,
-                    prijs: prijs,
-                    ligging: ligging,
-                    oppervlakte: oppervlakte,
-                    notities: message_score_page_data
-                });
-            }
-        })
-        .catch((error) => {
-            console.error('Error fetching house data:', error);
-        });
+        console.log(JSON.stringify(url) + 'dit huos');
+        if (house_details.data) { // Check if house_details.data exists
+            response.render('score', {
+                house: house_details.data,
+                // Assuming these variables are defined elsewhere
+                algemeen: algemeen,
+                keuken: keuken,
+                badkamer: badkamer,
+                tuin: tuin,
+                prijs: prijs,
+                ligging: ligging,
+                oppervlakte: oppervlakte,
+                notities: message_score_page_data
+            });
+        }
+    } catch (error) { // Handle errors with descriptive message
+        console.error('Error fetching house data:', error);
+        // Render an error message or view if fetching fails (add logic here)
+    }
 });
+
 
 app.post('/score/:id', async function (request, response) {
     try {

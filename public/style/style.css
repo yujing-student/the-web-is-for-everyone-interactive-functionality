@@ -85,7 +85,6 @@ option:focus-visible{
 }
 article{
     border: solid #dddddd;
-    width: 21em;
 }
 .grid-house-lists{
     display: grid;
@@ -94,15 +93,16 @@ article{
 
 }
 .names-of-houses {
-    margin-left: -2em;
     display: grid;
     grid-row-gap: 0.8em;
+    margin-left: 1em;
+    padding: 0;
     /*border: solid #dddddd;*/
 
 }
 .image_house_icon{
     /*margin-left: -2em;*/
-    width: 150px;
+    width: 240px;
 }
 .user-profiles {
     width: 170px;
@@ -128,6 +128,7 @@ article{
 
 .link-to-house {
     font-weight: 300;
+    font-size: 1.1em;
 }
 
 .link-to-house:hover {
@@ -158,14 +159,17 @@ article{
         /*margin-left: 0.5em;*/
         max-width: 86em;
         padding: 0.5em;
-        margin: 0 2em 2em 2em ;
+        margin: 1em 2em 2em 2em ;
         /*height: 30em;*/
 
+    }
+    article{
+        width: 21em;
     }
 
     .image_house_icon{
         /*margin-left: -2em;*/
-        width: 150px;
+        width: 248px;
     }
     .grid-house-lists{
         display: grid;
@@ -183,7 +187,8 @@ article{
     }
 
     .height-li-items-title{
-        height: 2em;
+        height: 1.5em;
+
     }
     .omschrijving_li_items{
 

@@ -30,13 +30,21 @@ body {
     --margin-input-fields: 0 0 1em 0;
     --margin-2-em: 2em;
 }
-
+main {
+    margin: 2em 2em 2em 1em;
+}
 li {
     list-style-type: none;
 }
 
 .users-section {
     margin: 2em;
+}
+.output{
+    padding: 0;
+}
+.addres{
+    font-size: 1.1em;
 }
 
 .user-profiles {
@@ -167,6 +175,7 @@ li {
         gap: 0.5em;
         padding-right: 3em;
         width: 17em;
+        margin-top: 2em;
         /*grid-template-rows: 12em 1em 1em 1em 1em 1em;*/
         /*grid-template-rows: 12em repeat(5, 1.1em);*/
         /*    door deze code gaat de tekt  bovenop elkaa zitten*/
