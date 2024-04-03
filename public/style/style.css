@@ -44,6 +44,7 @@ a {
 /*read the code from above to under as it is in the index ejs*/
 main {
     margin: 2em 2em 2em 1em;
+    padding-inline: 2em;
 }
 
 .favorite-section-search {

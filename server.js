@@ -157,7 +157,6 @@ app.get('/score/:id', async function (request, response) {
     try {
         const house_details = await fetchJson(url); // Assuming fetchJson fetches data
 
-        console.log(JSON.stringify(url) + 'dit huos');
         if (house_details.data) { // Check if house_details.data exists
             response.render('score', {
                 house: house_details.data,

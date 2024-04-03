@@ -32,6 +32,7 @@ body {
 }
 main {
     margin: 2em 2em 2em 1em;
+    padding-inline: 2em;
 }
 
 li {
