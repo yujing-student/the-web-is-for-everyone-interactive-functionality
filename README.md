@@ -58,7 +58,13 @@ de 2de laag is de styling dus de css<br>
 de 3de laag is client side javascript met daarin de extra's zodat de pagina mooier word
 
 <br>
-Het doel is dat je pagina op oude browsers en oude apperaten ook werkt en redelijk funcitoneel is
+Het doel is dat je pagina op oude browsers 
+en oude apperaten ook werkt en redelijk funcitoneel is<br>
+
+Dit heb ik toegepast door eerst de data uit de server op te halen zodat de gebruiker de tekst kan zien
+de 2de laag is de styling zodat er een mooie layout staat en
+de 3de laag is clientside extra javascript voor functionaliteiten of voor styling
+
 </p>
 
 ## Bronnen
