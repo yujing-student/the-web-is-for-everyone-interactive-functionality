@@ -147,6 +147,8 @@ const prijs = []//dit is voor huizenlijsten
 const ligging = []//dit is voor huizenlijsten
 const oppervlakte = []//dit is voor huizenlijsten
 const message_score_page_data = [];
+const notities = [];
+
 app.get('/score/:id', async function (request, response) {
     const listId = request.params.id;
     // console.log('Fetching data for list ID:', listId);

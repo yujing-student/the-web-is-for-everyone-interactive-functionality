@@ -4,7 +4,7 @@
 
     <section class="users-section-score">
         <h1>score</h1>
-        <p>Hier kunt u een score geven over het huis</p>
+        <p>Hier kunt u een score geven over het huis.</p>
 
         <ul class="house_details">
             <li class="message"><img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>" alt="image_house" class="house"> </li>
@@ -24,7 +24,7 @@
 
 
             <h2 class="h2-score">score</h2>
-            <p class="p-score">hier kunt u een score geven over het huis van 0 tot en met 10</p>
+            <p class="p-score">Geef een score over het huis van 0 tot en met 10.</p>
 
 
             <form method="POST" action="/score/<%= house.id %>" class="inputfields">
@@ -45,19 +45,19 @@
                 <label for="tuin" class="label-inputfield"><span>tuin:</span>
                     <input class="input_fields" type="number" id="tuin" name="tuinNumber" value="" placeholder="0">
                 </label>
-                <button type="submit" class="submit- button-notes notes">geef je </button>
+                <button type="submit" class="submit- button-notes notes">Opslaan </button>
 
             </form>
         </section>
         <section class="notes_input">
-            <h2 class="berichten-score">notities</h2>
-            <p>hier kunt u een notitie achterlaten</p>
+            <h2 class="berichten-score">Notities</h2>
+            <p>Hier kunt u een notitie achterlaten.</p>
             <form method="POST" action="/score/<%= house.id %>" class="chatbox">
                 <input type="hidden" value="<%= house.id %>">
                 <label for="bericht">
                     <textarea id="test" name="test"></textarea>
                 </label>
-                <button type="submit" class="button-notes notes">laat je notite achter</button>
+                <button type="submit" class="button-notes notes">Opslaan</button>
 
             </form>
         </section>
@@ -65,14 +65,14 @@
         <section class="show-the-scores">
 
 
-            <h2 class="berichten-score">beoordeling agemeen</h2>
+            <h2 class="berichten-score">Beoordeling</h2>
             <ul class="output">
                 <% if (algemeen.length > 0) { %>
                     <% algemeen.forEach(number =>{ %>
-                        <li class="message"> algemeen: <%= number %></li>
+                        <li class="message"> Algemeen: <%= number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> algemeen: 0</li>
+                    <li class="message"> Algemeen: 0</li>
                 <% } %>
 
                 <% if (keuken.length > 0) { %>
@@ -80,10 +80,10 @@
                         <li class="message"> keuken: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> keuken: 0</li>
+                    <li class="message"> Keuken: 0</li>
                 <% } %>
 
-                <% if (Badkamer.length > 0) { %>
+                <% if (badkamer.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
                         <li class="message"> Badkamer: <%= kitchen_number %></li>
                     <% }) %>
@@ -96,7 +96,7 @@
                         <li class="message"> tuin: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> tuin: 0</li>
+                    <li class="message"> Tuin: 0</li>
                 <% } %>
             </ul>
         </section>
@@ -105,7 +105,7 @@
         <section class="notes_input">
 
 
-            <h2 class="berichten-score">Hier zie je uw berichten</h2>
+            <h2 class="berichten-score">Uw notities</h2>
             <ul class="output">
                 <% notities.forEach(message =>{ %>
                     <li class="message"><%= message %></li>
@@ -122,7 +122,7 @@
 
             <p><img src="../images/geel.jpg" class="user" alt="user geel"></p>
 
-            <h2 class="berichten-score">jan</h2>
+            <h2 class="berichten-score">Jan</h2>
 
             <ul class="output">
                 <% if (algemeen.length > 0) { %>
@@ -130,7 +130,7 @@
                         <li class="message"> algemeen: <%= number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> algemeen: 0</li>
+                    <li class="message"> Algemeen: 0</li>
                 <% } %>
 
                 <% if (keuken.length > 0) { %>
@@ -138,7 +138,7 @@
                         <li class="message"> keuken: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> keuken: 0</li>
+                    <li class="message"> Keuken: 0</li>
                 <% } %>
 
                 <% if (badkamer.length > 0) { %>
@@ -154,14 +154,14 @@
                         <li class="message"> tuin: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> tuin: 0</li>
+                    <li class="message"> Tuin: 0</li>
                 <% } %>
             </ul>
         </section>
         <section class="users_score_rating second_user">
             <p><img src="../images/rood.jpg" class="user" alt="user geel"></p>
 
-            <h2 class="berichten-score">piet</h2>
+            <h2 class="berichten-score">Piet</h2>
 
             <ul class="output">
                 <% if (algemeen.length > 0) { %>
@@ -169,7 +169,7 @@
                         <li class="message"> algemeen: <%= number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> algemeen: 0</li>
+                    <li class="message"> Algemeen: 0</li>
                 <% } %>
 
                 <% if (keuken.length > 0) { %>
@@ -177,7 +177,7 @@
                         <li class="message"> keuken: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> keuken: 0</li>
+                    <li class="message"> Keuken: 0</li>
                 <% } %>
 
                 <% if (badkamer.length > 0) { %>
@@ -193,7 +193,7 @@
                         <li class="message"> tuin: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> tuin: 0</li>
+                    <li class="message"> Tuin: 0</li>
                 <% } %>
             </ul>
         </section>

@@ -120,6 +120,12 @@ ul{
     /*background-color: #e6f2f7;*/
 
 }
+#test{
+    width: 15em;
+    height: 5em;
+    overflow: hidden;
+    max-width: 30em;
+}
 .score-others-grid-container{
     display: flex;
     flex-direction: column;
