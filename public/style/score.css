@@ -202,6 +202,7 @@ ul{
     .score-others-grid-container{
         display: grid;
         grid-template-columns: 35em 29em;
+        margin-top: 4em;
 
         column-gap: 3em;
     }
