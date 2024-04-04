@@ -63,7 +63,9 @@ en oude apperaten ook werkt en redelijk funcitoneel is<br>
 
 Dit heb ik toegepast door eerst de data uit de server op te halen zodat de gebruiker de tekst kan zien
 de 2de laag is de styling zodat er een mooie layout staat en
-de 3de laag is clientside extra javascript voor functionaliteiten of voor styling
+de 3de laag is clientside extra javascript voor functionaliteiten of voor styling dus in mijn geval een hamburgermenu
+
+
 
 </p>
 

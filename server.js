@@ -28,15 +28,16 @@ app.set('views', './views')
 
 // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
 app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));//deze regel code gebruiken vanwege middelware zodat de data leesbaar gemaakt word
+
+
+
 
 app.get('/', async function (request, response) {
-
     const url = `https://fdnd-agency.directus.app/items/f_list/?fields=*.*.*`;
 
-
     try {
-        const favorite_houses = await fetchJson(url); // use this instead of .then because the favorite houses must have 1 array with more arrays in it
+        const favorite_houses = await fetchJson(url); // dit gebruiken vanwege meerdere arrays
         if (favorite_houses.data) {
             console.log(JSON.stringify(favorite_houses.data[1].houses[1].f_houses_id.poster_image));
 
@@ -105,6 +106,7 @@ app.get('/Detailpage/:id', function (request, response) {
                 // console.log('data bestaat u gaat nu naar de Detailpage page' + JSON.stringify(apiData))
                 // info gebruiken om die te linken aan apidata.data
 
+                console.log(JSON.stringify(favorite_houses.data));
                 response.render('Detailpage', {
                     house: apiData.data,
                     images: favorite_houses.data,
@@ -147,7 +149,6 @@ const prijs = []//dit is voor huizenlijsten
 const ligging = []//dit is voor huizenlijsten
 const oppervlakte = []//dit is voor huizenlijsten
 const message_score_page_data = [];
-const notities = [];
 
 app.get('/score/:id', async function (request, response) {
     const listId = request.params.id;
@@ -180,14 +181,14 @@ app.get('/score/:id', async function (request, response) {
 
 app.post('/score/:id', async function (request, response) {
     try {
-        // Get the request body data
+        // ophalen van de data en opslaan in een const
         const message_score_page = request.body.test;
         const algemeenNumber = request.body.algemeenNumber;
         const keukenNumber = request.body.keukenNumber;
         const badkamerNumber = request.body.badkamerNumber;
         const tuinNumber = request.body.tuinNumber;
 
-        // Push the data to the respective arrays
+        // data toeveogen aan de array
         algemeen.push(algemeenNumber);
         keuken.push(keukenNumber);
         badkamer.push(badkamerNumber);
@@ -201,7 +202,7 @@ app.post('/score/:id', async function (request, response) {
         console.error('Error saving score:', error);
 
         // Redirect the user back to the score page with an error message
-        response.redirect(303, '/score/' + request.params.id + '?error=' + error.message);
+        response.redirect(303, '/score/' + request.params.id);
     }
 });
 
