@@ -87,7 +87,7 @@ li {
 }
 
 
-.button-notes {
+.button_notes {
     background-color: var(--orange);
     font-size: 1.2em;
     border: none;
@@ -134,7 +134,7 @@ li {
     margin-left: 2em;
 }
 
-.berichten-score {
+.notes_h2 {
     margin-left: 1.6em;
     margin-top: 2em;
 }
@@ -150,12 +150,12 @@ li {
     width: 10em;
 }
 
-.output {
+.output_other_users {
     margin-left: 2em;
     padding-bottom: 2em;
 }
 
-.message {
+.house_details_text {
     list-style: disc;
 }
 .go-to-score{

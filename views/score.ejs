@@ -2,14 +2,14 @@
 <main>
 
 
-    <section class="users-section-score">
+    <section>
         <h1>score</h1>
         <p>Hier kunt u een score geven over het huis.</p>
 
         <ul class="house_details">
-            <li class="message"><img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>" alt="image_house" class="house"> </li>
-            <li class="message"><%= house.street %> <%= house.house_nr %> </li>
-            <li class="message"><%= house.city %> <%= house.postal_code %></li>
+            <li class="house_details_text"><img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>" alt="image_house" class="house"> </li>
+            <li class="house_details_text"><%= house.street %> <%= house.house_nr %> </li>
+            <li class="house_details_text"><%= house.city %> <%= house.postal_code %></li>
 
         </ul>
 
@@ -19,12 +19,12 @@
     </section>
 
 
-    <div class="grid-socre_divs">
-        <section class="give-score">
+    <div class="grid_score_div">
+        <section class="give_score_numbers">
 
 
-            <h2 class="h2-score">score</h2>
-            <p class="p-score">Geef een score over het huis van 0 tot en met 10.</p>
+            <h2>score</h2>
+            <p>Geef een score over het huis van 0 tot en met 10.</p>
 
 
             <form method="POST" action="/score/<%= house.id %>" class="inputfields">
@@ -32,32 +32,32 @@
 
 
                 <label for="algemeen" class="label-inputfield"><span>algemeen:</span>
-                    <input class="input_fields" type="number" id="algemeen" name="algemeenNumber" value=""
+                    <input type="number" id="algemeen" name="algemeenNumber" value=""
                            placeholder="0">
                 </label>
                 <label for="keuken" class="label-inputfield"><span>keuken:</span>
-                    <input class="input_fields" type="number" id="keuken" name="keukenNumber" value="" placeholder="0">
+                    <input type="number" id="keuken" name="keukenNumber" value="" placeholder="0">
                 </label>
                 <label for="Badkamer" class="label-inputfield"><span>Badkamer:</span>
-                    <input class="input_fields" type="number" id="Badkamer" name="badkamerNumber" value=""
+                    <input type="number" id="Badkamer" name="badkamerNumber" value=""
                            placeholder="0">
                 </label>
                 <label for="tuin" class="label-inputfield"><span>tuin:</span>
-                    <input class="input_fields" type="number" id="tuin" name="tuinNumber" value="" placeholder="0">
+                    <input type="number" id="tuin" name="tuinNumber" value="" placeholder="0">
                 </label>
-                <button type="submit" class="submit- button-notes notes">Opslaan </button>
+                <button type="submit" class="submit- button_notes notes">Opslaan </button>
 
             </form>
         </section>
-        <section class="notes_input">
-            <h2 class="berichten-score">Notities</h2>
+        <section class="input_notes">
+            <h2 class="">Notities</h2>
             <p>Hier kunt u een notitie achterlaten.</p>
             <form method="POST" action="/score/<%= house.id %>" class="chatbox">
                 <input type="hidden" value="<%= house.id %>">
                 <label for="bericht">
                     <textarea id="test" name="test"></textarea>
                 </label>
-                <button type="submit" class="button-notes notes">Opslaan</button>
+                <button type="submit" class="button_notes">Opslaan</button>
 
             </form>
         </section>
@@ -65,50 +65,48 @@
         <section class="show-the-scores">
 
 
-            <h2 class="berichten-score">Beoordeling</h2>
-            <ul class="output">
+            <h2 class="">Beoordeling</h2>
+            <ul class="output_other_users">
                 <% if (algemeen.length > 0) { %>
                     <% algemeen.forEach(number =>{ %>
-                        <li class="message"> Algemeen: <%= number %></li>
+                        <li class="house_details_text"> Algemeen: <%= number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Algemeen: 0</li>
+                    <li class="house_details_text"> Algemeen: 0</li>
                 <% } %>
 
                 <% if (keuken.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
-                        <li class="message"> keuken: <%= kitchen_number %></li>
+                        <li class="house_details_text"> keuken: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Keuken: 0</li>
+                    <li class="house_details_text"> Keuken: 0</li>
                 <% } %>
 
                 <% if (badkamer.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
-                        <li class="message"> Badkamer: <%= kitchen_number %></li>
+                        <li class="house_details_text"> Badkamer: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Badkamer: 0</li>
+                    <li class="house_details_text"> Badkamer: 0</li>
                 <% } %>
 
                 <% if (tuin.length > 0) { %>
                     <% tuin.forEach(kitchen_number =>{ %>
-                        <li class="message"> tuin: <%= kitchen_number %></li>
+                        <li class="house_details_text"> tuin: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Tuin: 0</li>
+                    <li class="house_details_text"> Tuin: 0</li>
                 <% } %>
             </ul>
         </section>
 
 
-        <section class="notes_input">
-
-
-            <h2 class="berichten-score">Uw notities</h2>
-            <ul class="output">
+        <section class="input_notes">
+            <h2 class="notes_h2">Uw notities</h2>
+            <ul class="output_other_users">
                 <% notities.forEach(message =>{ %>
-                    <li class="message"><%= message %></li>
+                    <li class="house_details_text"><%= message %></li>
                 <% }) %>
             </ul>
         </section>
@@ -116,84 +114,84 @@
     </div>
 
 
-    <div class="score-others-grid-container">
+    <div class="score_others_grid_container">
         <h2 class="title">Bekijk de beoordelingen van anderen</h2>
         <section class="users_score_rating first_user">
 
             <p><img src="../images/geel.jpg" class="user" alt="user geel"></p>
 
-            <h2 class="berichten-score">Jan</h2>
+            <h2 class="">Jan</h2>
 
-            <ul class="output">
+            <ul class="output_other_users">
                 <% if (algemeen.length > 0) { %>
                     <% algemeen.forEach(number =>{ %>
-                        <li class="message"> algemeen: <%= number %></li>
+                        <li class="house_details_text"> algemeen: <%= number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Algemeen: 0</li>
+                    <li class="house_details_text"> Algemeen: 0</li>
                 <% } %>
 
                 <% if (keuken.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
-                        <li class="message"> keuken: <%= kitchen_number %></li>
+                        <li class="house_details_text"> keuken: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Keuken: 0</li>
+                    <li class="house_details_text"> Keuken: 0</li>
                 <% } %>
 
                 <% if (badkamer.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
-                        <li class="message"> Badkamer: <%= kitchen_number %></li>
+                        <li class="house_details_text"> Badkamer: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Badkamer: 0</li>
+                    <li class="house_details_text"> Badkamer: 0</li>
                 <% } %>
 
                 <% if (tuin.length > 0) { %>
                     <% tuin.forEach(kitchen_number =>{ %>
-                        <li class="message"> tuin: <%= kitchen_number %></li>
+                        <li class="house_details_text"> tuin: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Tuin: 0</li>
+                    <li class="house_details_text"> Tuin: 0</li>
                 <% } %>
             </ul>
         </section>
         <section class="users_score_rating second_user">
             <p><img src="../images/rood.jpg" class="user" alt="user geel"></p>
 
-            <h2 class="berichten-score">Piet</h2>
+            <h2 class="">Piet</h2>
 
-            <ul class="output">
+            <ul class="output_other_users">
                 <% if (algemeen.length > 0) { %>
                     <% algemeen.forEach(number =>{ %>
-                        <li class="message"> algemeen: <%= number %></li>
+                        <li class="house_details_text"> algemeen: <%= number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Algemeen: 0</li>
+                    <li class="house_details_text"> Algemeen: 0</li>
                 <% } %>
 
                 <% if (keuken.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
-                        <li class="message"> keuken: <%= kitchen_number %></li>
+                        <li class="house_details_text"> keuken: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Keuken: 0</li>
+                    <li class="house_details_text"> Keuken: 0</li>
                 <% } %>
 
                 <% if (badkamer.length > 0) { %>
                     <% keuken.forEach(kitchen_number =>{ %>
-                        <li class="message"> Badkamer: <%= kitchen_number %></li>
+                        <li class="house_details_text"> Badkamer: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Badkamer: 0</li>
+                    <li class="house_details_text"> Badkamer: 0</li>
                 <% } %>
 
                 <% if (tuin.length > 0) { %>
                     <% tuin.forEach(kitchen_number =>{ %>
-                        <li class="message"> tuin: <%= kitchen_number %></li>
+                        <li class="house_details_text"> tuin: <%= kitchen_number %></li>
                     <% }) %>
                 <% } else { %>
-                    <li class="message"> Tuin: 0</li>
+                    <li class="house_details_text"> Tuin: 0</li>
                 <% } %>
             </ul>
         </section>

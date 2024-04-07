@@ -11,7 +11,7 @@ function ShowHamburgerMenu() {/*hamburger menu*/
 ShowHamburgerMenu();
 shownotes();
 function shownotes () {
-    let button = document.querySelector('.button-notes');
+    let button = document.querySelector('.button_notes');
     let menu = document.querySelector('.detailpage-hide-notes');
     let targetElement = document.querySelector('.algemeen'); // Select the target element
 

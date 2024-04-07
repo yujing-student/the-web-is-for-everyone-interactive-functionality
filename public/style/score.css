@@ -39,15 +39,15 @@ li {
     list-style-type: none;
 }
 
-
-.users-section-score{
-    /*width: ;*/
+.give_score_numbers,.show-the-score,.notes_inputs{
+    margin-top: 2em;
 }
+
 .house{
     width: 150px;
 
 }
-.output{
+.output_other_users{
     padding: 0;
 }
 .user-profiles{
@@ -62,16 +62,14 @@ li {
     margin-bottom: 1em;
     max-width: 21em;
 }
-.show-the-scores,.give-score,.notes_input{
+.show-the-scores,.give_score_numbers,.input_notes{
     background-color: #e6f2f7;
     padding: 1em;
     margin-top: 2em;
     /*min-width: 300px;*/
 
 }
-.give-score,.show-the-score,.notes_inputs{
-    margin-top: 2em;
-}
+
 .inputfields{
     display: grid;
     /*grid-template-columns: repeat(2, 1fr);*/
@@ -91,7 +89,7 @@ li {
     padding: 1em;
     max-width: 61em;
 }
-.message{
+.house_details_text{
     font-size: 1.1em;
 }
 ul{
@@ -101,7 +99,7 @@ ul{
     width: 10em;
 }
 
-.button-notes{
+.button_notes{
     background-color: #F7A100;
     border: none;
     font-size: 1em;
@@ -111,7 +109,7 @@ ul{
     display: flex;
     flex-direction: column;
 }
-.button-notes{
+.button_notes{
     width: 10em;
 }
 .other-users-rating{
@@ -127,7 +125,7 @@ ul{
     overflow: hidden;
     max-width: 30em;
 }
-.score-others-grid-container{
+.score_others_grid_container{
     display: flex;
     flex-direction: column;
     row-gap: 2em;
@@ -144,7 +142,7 @@ ul{
     .inputfields{
         grid-template-columns: 17em;
     }
-    .output{
+    .output_other_users{
         display: grid;
         grid-template-columns: 13em 13em;
     }
@@ -158,13 +156,13 @@ ul{
     .house{
         width: 450px;
     }
-    .grid-socre_divs{
+    .grid_score_div{
         display: grid;
         grid-template-columns:29em 29em;
         column-gap: 3em;
         max-width: 66em;
     }
-    .score-others-grid-container{
+    .score_others_grid_container{
         display: grid;
         grid-template-columns: 29em 29em;
 
@@ -197,7 +195,7 @@ ul{
     .house_details{
         width: 49em;
     }
-    .grid-socre_divs{
+    .grid_score_div{
         display: grid;
         grid-template-columns:35em 29em;
         column-gap: 3em;
@@ -206,7 +204,7 @@ ul{
     .inputfields{
         grid-template-columns: 17em 17em;
     }
-    .score-others-grid-container{
+    .score_others_grid_container{
         display: grid;
         grid-template-columns: 35em 29em;
         margin-top: 4em;
