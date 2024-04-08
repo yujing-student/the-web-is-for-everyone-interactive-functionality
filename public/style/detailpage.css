@@ -42,21 +42,21 @@ li {
 .image-size {
     width: 200px;
 }
-.image-grid{
+.div_image_grid{
     padding-left: 2em;
 }
-.houses-images {
+.houses_images {
     /*object-fit: cover;*/
     height: 200px;
     width: 200px;
     aspect-ratio: 1/1;
 }
 
-.address-h1 {
+.address_h1 {
     margin-inline: 1.5em;
 }
 
-.detailpage-list-house {
+.detailpage_ul_list_house {
     display: grid;
     grid-template-columns: auto;
     row-gap: 8px;
@@ -65,19 +65,17 @@ li {
     margin-bottom: -0.2em;
 }
 
-.text-font {
-    /*font-size: 1.2em;*/
-}
 
-.tuin, .kamers,.wonen {
+
+.tuin_span, .kamers_span,.wonen_span {
     margin-left: 0.5em;
 }
 
-.price {
+.price_li {
     font-size: 1.5em;
 }
 
-.description {
+.description_section {
     margin-inline: 2.4em;
     border-top: solid #dddddd;
 }
@@ -166,7 +164,7 @@ li {
 @media (min-width: 650px) {
 
     /*media query 650 px*/
-    .houses-images {
+    .houses_images {
         object-fit: cover;
         aspect-ratio: 1/1;
     }

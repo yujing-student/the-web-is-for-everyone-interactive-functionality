@@ -105,7 +105,7 @@ li {
     line-height: 1.5em;
     /*    hoogte bepalen van de tekstbinnen de kaart van ieder li element*/
 }
-.price{
+.price_li{
     font-size: 1.2em;
     font-weight: bold;
 }

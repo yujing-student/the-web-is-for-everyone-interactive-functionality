@@ -1,41 +1,41 @@
 <%- include('./partials/head-detail') %>
 <main class="">
-    <div class="image-grid">
+    <div class="div_image_grid">
 
 
         <!--        <img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"-->
         <!--             alt="image house">-->
         <% house.gallery.forEach(image =>{ %>
-            <img src="https://fdnd-agency.directus.app/assets/<%= image.directus_files_id.id %>" class="houses-images"
+            <img src="https://fdnd-agency.directus.app/assets/<%= image.directus_files_id.id %>" class="houses_images"
                  alt="images houses">
         <% }) %>
     </div>
 
     <section class="">
 
-        <h1 class="address-h1"><%= house.street %> <%= house.house_nr %></h1>
-        <ul class="detailpage-list-house">
+        <h1 class="address_h1"><%= house.street %> <%= house.house_nr %></h1>
+        <ul class="detailpage_ul_list_house">
             <li class=""> <%= house.postal_code %> <%= house.city %></li>
             <li class="">
                 <img class="icons" src="/assets/icons/wonen.svg"
-                     alt=" icoon"> <span class="text-font wonen"> <%= house.m2 %> wonen</span>
+                     alt=" icoon"> <span class=" wonen_span"> <%= house.m2 %> wonen</span>
 
             </li>
             <li>
                 <img class="icons" src="/assets/icons/perceel.svg"
-                     alt="perceel icoon"> <span class="tuin text-font"><%= house.m2_garden %> perceel</span>
+                     alt="perceel icoon"> <span class="tuin_span text-font_span"><%= house.m2_garden %> perceel</span>
             <li>
                 <img class="icons" src="/assets/icons/bed.svg" alt="bed icoon">
-                <span class="kamers text-font">
+                <span class="kamers_span ">
                        <%= house.rooms %>   kamers</span></li>
-            <li class="price">&euro; <%= house.price %> kk</li>
+            <li class="price_li">&euro; <%= house.price %> kk</li>
         </ul>
 
     </section>
 
-    <section class="description">
+    <section class="description_section">
         <h2>Beschrijving</h2>
-        <p class="house-description-text"><%-house.description %></p>
+        <p class=""><%-house.description %></p>
 
         <a href="../score/<%= house.id %>" class="go-to-score">Log in om score te bekijken </a>
     </section>
