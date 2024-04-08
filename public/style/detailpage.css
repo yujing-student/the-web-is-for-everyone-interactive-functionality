@@ -80,82 +80,19 @@ li {
     border-top: solid #dddddd;
 }
 
-.description-text {
-    line-height: 1.5em;
-}
 
 
-.button_notes {
-    background-color: var(--orange);
-    font-size: 1.2em;
-    border: none;
-}
 
-.detailpage-hide-notes {
-    margin-left: 2em;
-    background-color: #e6f2f7;
-    display: none;
-}
 
-.detailpage-hide-notes-open {
-    margin-left: 2em;
-    display: block;
-    background-color: #e6f2f7;
-}
 
-.h2-score {
-    margin-left: 1.5em;
-    padding-top: 1em;
-}
 
-.p-score {
-    margin-left: 2.3em;
-    margin-bottom: 2em;
-}
 
-.grid-scores {
-    display: grid;
 
-    grid-template-columns: 1fr 1fr;
-}
 
-.score-range {
-    /*margin:0 0 3em 0;*/
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0px, 1fr));
-    /*gap: 15px;*/
-    margin-bottom: 1em;
-    max-width: 21em;
-}
 
-.distance-score {
-    margin-left: 2em;
-}
 
-.notes_h2 {
-    margin-left: 1.6em;
-    margin-top: 2em;
-}
 
-.chatbox {
-    /*margin:0 0 3em 0;*/
-    display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(0px, 1fr));
-    /*gap: 15px;*/
-}
 
-.notes {
-    width: 10em;
-}
-
-.output_other_users {
-    margin-left: 2em;
-    padding-bottom: 2em;
-}
-
-.house_details_text {
-    list-style: disc;
-}
 .go-to-score{
     color: var(--blue);
     font-size: 1.1em;
@@ -169,9 +106,7 @@ li {
         aspect-ratio: 1/1;
     }
 
-    .score-range {
-        margin: 0 0 1em 0;
-    }
+
 }
 
 @media (min-width: 1000px) {
