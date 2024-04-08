@@ -39,7 +39,7 @@ li {
     list-style-type: none;
 }
 
-.give_score_numbers,.show-the-score,.notes_inputs{
+.give_score_numbers{
     margin-top: 2em;
 }
 
@@ -50,18 +50,8 @@ li {
 .output_other_users{
     padding: 0;
 }
-.user-profiles{
-    width: 150px;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-}
-.score-range{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(0px,1fr));
-    margin-bottom: 1em;
-    max-width: 21em;
-}
+
+
 .show-the-scores,.give_score_numbers,.input_notes{
     background-color: #e6f2f7;
     padding: 1em;
@@ -80,9 +70,7 @@ li {
     display: grid;
     grid-template-columns: 6em 8em;
 }
-.input_fields{
 
-}
 .house_details{
     margin-top: 2em;
     background-color: #e6f2f7;
@@ -95,29 +83,18 @@ li {
 ul{
     padding: 0;
 }
-.submit-cijfer{
-    width: 10em;
-}
 
 .button_notes{
     background-color: #F7A100;
     border: none;
     font-size: 1em;
+
+    width: 10em;
 }
 
 .chatbox{
     display: flex;
     flex-direction: column;
-}
-.button_notes{
-    width: 10em;
-}
-.other-users-rating{
-    padding: 1em;
-    margin-top: 5em;
-    max-width: 33em;
-    /*background-color: #e6f2f7;*/
-
 }
 #test{
     width: 15em;
@@ -212,9 +189,3 @@ ul{
         column-gap: 3em;
     }
 }
-
-/*.grid-containter-inputfields{*/
-/*    display: grid;*/
-/*    grid-template-columns: repeat(2, 1fr);*/
-/*    grid-gap: 10px;*/
-/*}*/
