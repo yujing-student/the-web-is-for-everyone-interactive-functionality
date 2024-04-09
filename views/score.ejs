@@ -7,13 +7,13 @@
         <p>Hier kunt u een score geven over het huis.</p>
 
         <ul class="house_details">
-            <li class="house_details_text"><img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>" alt="image_house" class="house"> </li>
+            <li class="house_details_text"><img
+                        src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>" alt="image_house"
+                        class="house"></li>
             <li class="house_details_text"><%= house.street %> <%= house.house_nr %> </li>
             <li class="house_details_text"><%= house.city %> <%= house.postal_code %></li>
 
         </ul>
-
-
 
 
     </section>
@@ -45,7 +45,7 @@
                 <label for="tuin" class="label-inputfield"><span>tuin:</span>
                     <input type="number" id="tuin" name="tuinNumber" value="" placeholder="0">
                 </label>
-                <button type="submit" class="submit- button_notes notes">Opslaan </button>
+                <button type="submit" class="submit- button_notes notes">Opslaan</button>
 
             </form>
         </section>

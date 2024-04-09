@@ -32,21 +32,23 @@ body {
 
 
 /*dit staat op volgorde van de ejs detailpage*/
-main{
+main {
     margin: 2em 2em 0 0;
 }
+
 li {
     list-style-type: none;
 }
 
-.image-size {
+.image_size {
     width: 200px;
 }
-.div_image_grid{
+
+.div_image_grid {
     padding-left: 2em;
 }
+
 .houses_images {
-    /*object-fit: cover;*/
     height: 200px;
     width: 200px;
     aspect-ratio: 1/1;
@@ -61,13 +63,13 @@ li {
     grid-template-columns: auto;
     row-gap: 8px;
 }
-.icons{
+
+.icons {
     margin-bottom: -0.2em;
 }
 
 
-
-.tuin_span, .kamers_span,.wonen_span {
+.tuin_span, .kamers_span, .wonen_span {
     margin-left: 0.5em;
 }
 
@@ -81,26 +83,12 @@ li {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-.go-to-score{
+.go-to-score {
     color: var(--blue);
     font-size: 1.1em;
 }
 
 @media (min-width: 650px) {
-
-    /*media query 650 px*/
     .houses_images {
         object-fit: cover;
         aspect-ratio: 1/1;

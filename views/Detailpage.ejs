@@ -3,8 +3,6 @@
     <div class="div_image_grid">
 
 
-        <!--        <img class="image-size" src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>"-->
-        <!--             alt="image house">-->
         <% house.gallery.forEach(image =>{ %>
             <img src="https://fdnd-agency.directus.app/assets/<%= image.directus_files_id.id %>" class="houses_images"
                  alt="images houses">
@@ -35,7 +33,7 @@
 
     <section class="description_section">
         <h2>Beschrijving</h2>
-        <p class=""><%-house.description %></p>
+        <p class=""><%- house.description %></p>
 
         <a href="../score/<%= house.id %>" class="go-to-score">Log in om score te bekijken </a>
     </section>

@@ -30,25 +30,26 @@ body {
     --margin-input-fields: 0 0 1em 0;
     --margin-2-em: 2em;
 }
+
 main {
     margin: 2em 2em 2em 1em;
 
 }
+
 li {
     list-style-type: none;
 }
 
-.users-section {
+.users_section {
     margin: 2em;
 }
-.output_other_users{
+
+.output_other_users {
     padding: 0;
 }
-.addres{
-    font-size: 1.1em;
-}
 
-.user-profiles {
+
+.user_profiles {
     width: 150px;
     padding-bottom: 1em;
     padding-left: 1em;
@@ -56,12 +57,7 @@ li {
 }
 
 
-.user-profiles {
-
-
-}
-
-.grid-container-houses-lijst {
+.grid_container_houses_lijst {
     display: grid;
     grid-template-columns: auto;
     gap: 1em;
@@ -69,65 +65,58 @@ li {
 }
 
 .houses {
-    /*width: 16em;*/
-    /*padding: 0 0 0 3.5em;*/
     padding-right: 1em;
     margin-inline: 2em;
     box-sizing: border-box;
-    /*padding-left: 1em;*/
     border: solid var(--gray) 0.2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.image-house-data {
-    /*padding-left: 0;*/
-    /*padding left default op 0 zodat het recht komt te staan */
+.image_house_data {
     display: grid;
     gap: 0.5em;
     padding-right: 2em;
     width: 17em;
-    /*grid-template-rows: 12em 1em 1em 1em 1em 1em;*/
-    /*grid-template-rows: 12em repeat(5, 1.1em);*/
-/*    door deze code gaat de tekt  bovenop elkaa zitten*/
 }
 
-.image-size {
+.image_size {
     width: 100%;
     object-fit: cover;
 }
 
 
-
-.child-li-house-card {
+.child_li_house_card {
     height: 1.2em;
     line-height: 1.5em;
     /*    hoogte bepalen van de tekstbinnen de kaart van ieder li element*/
 }
-.price_li{
+
+.price_li {
     font-size: 1.2em;
     font-weight: bold;
 }
-/*todo hover states op option dus de sorteer functie en de pagina mist nog veel opmaak*/
-.submit-score{
-    cursor: pointer;
-}
-.agen-long-text{
+
+.agent_long_text {
     height: 3em;
 }
-.special-link{
+
+.special_link {
     margin-top: 2em;
-    color:var(--blue)
+    color: var(--blue);
+    font-size: 1.1em;
 }
-.button-score-page{
+
+.button_score_page {
     background-color: transparent;
     font-size: 1.1em;
     padding: 0;
     border: none;
 }
+
 @media (width >= 400px) {
-    .grid-container-houses-lijst {
+    .grid_container_houses_lijst {
         display: grid;
         grid-template-columns: repeat(auto-fit, 26em);
         /*autofit betekend dat iedere colum afgesteld word aa de minimale breeedte
@@ -135,19 +124,22 @@ li {
         row-gap: 3em;
         margin: 2em;
     }
-    .image-house-data{
+
+    .image_house_data {
         padding-right: 3em;
     }
+
     .houses {
         width: 22em;
         height: fit-content;
         margin-inline: 0;
     }
 
-    .image-size {
+    .image_size {
         object-fit: cover;
     }
-    .user-profiles {
+
+    .user_profiles {
         width: 170px;
         padding-bottom: 1em;
         padding-left: 1em;
@@ -159,17 +151,18 @@ li {
 
 @media (width >= 600px) {
 
-    .image-size {
+    .image_size {
         width: 250px;
         height: 183px;
         object-fit: cover;
 
     }
-    .houses{
+
+    .houses {
         padding: 0 0 0 3em;
     }
 
-    .image-house-data {
+    .image_house_data {
         padding-left: 0;
         /*padding left default op 0 zodat het recht komt te staan */
         display: grid;
@@ -177,9 +170,6 @@ li {
         padding-right: 3em;
         width: 17em;
         margin-top: 2em;
-        /*grid-template-rows: 12em 1em 1em 1em 1em 1em;*/
-        /*grid-template-rows: 12em repeat(5, 1.1em);*/
-        /*    door deze code gaat de tekt  bovenop elkaa zitten*/
     }
 
 

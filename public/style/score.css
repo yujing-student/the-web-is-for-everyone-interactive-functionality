@@ -35,29 +35,31 @@ main {
     padding-inline: 2em;
 }
 
+ul{
+    padding: 0;
+}
+
 li {
     list-style-type: none;
 }
 
-.give_score_numbers{
+.house_details{
     margin-top: 2em;
+    background-color: #e6f2f7;
+    padding: 1em;
+    max-width: 61em;
+}
+.house_details_text{
+    font-size: 1.1em;
 }
 
 .house{
     width: 150px;
 
 }
-.output_other_users{
-    padding: 0;
-}
 
-
-.show-the-scores,.give_score_numbers,.input_notes{
-    background-color: #e6f2f7;
-    padding: 1em;
+.give_score_numbers{
     margin-top: 2em;
-    /*min-width: 300px;*/
-
 }
 
 .inputfields{
@@ -71,16 +73,17 @@ li {
     grid-template-columns: 6em 8em;
 }
 
-.house_details{
-    margin-top: 2em;
+
+
+
+.show-the-scores,.give_score_numbers,.input_notes{
     background-color: #e6f2f7;
     padding: 1em;
-    max-width: 61em;
+    margin-top: 2em;
+    /*min-width: 300px;*/
+
 }
-.house_details_text{
-    font-size: 1.1em;
-}
-ul{
+.output_other_users{
     padding: 0;
 }
 

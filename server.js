@@ -62,14 +62,13 @@ app.get('/lijsten/:id', function (request, response) {
 
     fetchJson(`https://fdnd-agency.directus.app/items/f_list/${listId}?fields=*.*.*`)
         .then((apiData) => {
-            if (apiData.data && apiData.data.houses)
-                { // Checken of deze 2 bestaan
-                    response.render('lijst.ejs',
-                        {
+            if (apiData.data && apiData.data.houses) { // Checken of deze 2 bestaan
+                response.render('lijst.ejs',
+                    {
                         list: apiData.data,
                         houses: apiData.data.houses
-                        });
-                }
+                    });
+            }
         })
         .catch((error) => {
             console.error('Error fetching house data:', error);
@@ -106,13 +105,13 @@ app.get('/Detailpage/:id', function (request, response) {
         });
 });
 
-const algemeen = []//dit is voor huizenlijsten
-const keuken = []//dit is voor huizenlijsten
-const badkamer = []//dit is voor huizenlijsten
-const tuin = []//dit is voor huizenlijsten
-const prijs = []//dit is voor huizenlijsten
-const ligging = []//dit is voor huizenlijsten
-const oppervlakte = []//dit is voor huizenlijsten
+const algemeen = []
+const keuken = []
+const badkamer = []
+const tuin = []
+const prijs = []
+const ligging = []
+const oppervlakte = []
 const message_score_page_data = [];
 
 app.get('/score/:id', async function (request, response) {
@@ -137,9 +136,8 @@ app.get('/score/:id', async function (request, response) {
                 notities: message_score_page_data
             });
         }
-    } catch (error) { // Handle errors with descriptive message
+    } catch (error) {
         console.error('Error fetching house data:', error);
-        // Render an error message or view if fetching fails (add logic here)
     }
 });
 
@@ -161,9 +159,7 @@ app.post('/score/:id', async function (request, response) {
         message_score_page_data.push(message_score_page);
 
         response.redirect(303, '/score/' + request.params.id);
-    }
-
-    catch (error) {
+    } catch (error) {
         console.error('De errror is:', error);
         response.redirect(303, '/score/' + request.params.id);
     }
