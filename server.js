@@ -29,10 +29,12 @@ app.use(express.urlencoded({extended: true}));//deze regel code gebruiken vanweg
 
 app.get('/', async function (request, response) {
     const url = `https://fdnd-agency.directus.app/items/f_list/?fields=*.*.*`;
+    const image_house = `https://fdnd-agency.directus.app/items/f_houses`
 
     try {
         const favorite_houses = await fetchJson(url); // dit gebruiken vanwege meerdere arrays
-        if (favorite_houses.data) {
+        const image_houses = await fetchJson(image_house);
+        if (favorite_houses.data && image_houses.data ) {
             // console.log(JSON.stringify(favorite_houses.data[1].houses[1].f_houses_id.poster_image));
 
             // 2 nested arrays
@@ -45,8 +47,11 @@ app.get('/', async function (request, response) {
                     image: house.f_houses_id.poster_image
                 }))
             }));
+            const show_images = image_houses.data.map(listItem => ({
+                img: listItem.poster_image,
+            }));
 
-            response.render('index', {lists: housedetails});
+            response.render('index', {lists: housedetails, images: show_images});
         } else {
             console.error('No favorite houses data found');
         }

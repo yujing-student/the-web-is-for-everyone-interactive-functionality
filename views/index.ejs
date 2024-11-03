@@ -23,17 +23,12 @@
 
 
         <div class="grid-house-lists">
-
             <% lists.forEach(list => { %>
 
                 <article>
+
                     <ol class="names-of-houses">
 
-                        <li><a href="/lijsten/<%= list.id %>"></a>
-
-
-                            <img src="https://fdnd-agency.directus.app/assets/<%= list.houses_array[0].image %>" alt="House Image" class="image_size image_house_icon">
-                        </li>
                         <li class="height-li-items  height-li-items-title"><a
                                     href="/lijsten/<%= list.id %>"
                                     class="link-to-house"><%= list.title %></a></li>
